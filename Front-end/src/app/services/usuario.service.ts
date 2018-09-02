@@ -6,12 +6,15 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private baseUrl = 'http://localhost.8080/usuarios';
+  private baseUrl = 'http://localhost:8080/usuarios';
   private headers = new Headers({'ContentType': 'application/json'});
 
   constructor(private http: Http) { }
 
   getUsuarios() {
     return this.http.get(this.baseUrl).pipe(map(response => response.json()));
+  }
+  getUsuario(nombre: string) {
+    return this.http.get(this.baseUrl + '/' + nombre ).pipe(map(response => response.json()));
   }
 }

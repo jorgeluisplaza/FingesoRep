@@ -14,8 +14,8 @@ import { RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
-  { path: 'ideas', component: IdeaComponent},
-  { path: 'usuarios', component: UsuarioComponent}
+  { path: 'ideas/:id', component: IdeaComponent},
+  { path: 'usuarios/:id', component: UsuarioComponent}
 ];
 
 @NgModule({

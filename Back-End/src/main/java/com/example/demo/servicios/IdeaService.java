@@ -8,6 +8,7 @@ import com.example.demo.repositorios.IdeaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.DescriptorKey;
 import java.util.List;
 
 @RestController
@@ -33,6 +34,12 @@ public class IdeaService {
     }
 
     @RequestMapping(value = "{id_idea}", method = RequestMethod.GET)
+    @CrossOrigin(origins = "*")
+    public Idea mostrarIdea(@PathVariable String id_idea){
+        return this.ideaRepository.findIdeaById(id_idea);
+    }
+
+    @RequestMapping(value = "{id_idea}/comentarios", method = RequestMethod.GET)
     @ResponseBody
     public List<Comentario> mostrarComentariosIdea(@PathVariable String id_idea){
         Idea idea = this.ideaRepository.findIdeaById(id_idea);

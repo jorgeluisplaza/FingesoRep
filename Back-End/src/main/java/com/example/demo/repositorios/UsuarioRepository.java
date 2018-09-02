@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsuarioRepository extends MongoRepository<Usuario, Long> {
     public Usuario findUsuarioById(String id);
+
+    // public Usuario deleteUsuarioById(String id); No se como hacer un override para que borre por id string
 }
 

@@ -48,6 +48,7 @@ public class UsuarioServicio {
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    @CrossOrigin(origins = "*")
     public Usuario getUsuarioById(@PathVariable String id){
         return this.usuarioRepository.findUsuarioById(id);
     }
@@ -81,12 +82,12 @@ public class UsuarioServicio {
         return this.usuarioRepository.save(usuario);
     }
 
-    @RequestMapping(value = "/{id}/getIdeas",method = RequestMethod.GET)
+    /*@RequestMapping(value = "/{id_usuario}/delete", method = RequestMethod.DELETE)
     @ResponseBody
-    public List<Idea> getIdeas(@PathVariable String id){
-        Usuario user = this.usuarioRepository.findUsuarioById(id);
+    public String eliminarUsuario(@PathVariable String id_usuario){
+        Usuario user = this.usuarioRepository.deleteById(id_usuario);
         return user.getIdeas();
-    }
+    }*/
 
 }
 

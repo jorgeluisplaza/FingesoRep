@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -17,18 +18,24 @@ export class UsuarioComponent implements OnInit {
   fecha_ingreso: string;
 
 
-  constructor(private usuarioService: UsuarioService) {
-/*    this.nombre = nombre;
-    this.apellido = apellido;
-    this.usuario = usuario;
-    this.correo = correo;
-    this.rol = rol;
-    this.password = password;
-    this.fecha_ingreso = fecha_ingreso;*/
+  constructor(private usuarioService: UsuarioService, private route: ActivatedRoute) {
+    this.route.params.subscribe( params => this.buscarUsuario(params['id']));
   }
   ngOnInit() {
-  this.usuarioService.getUsuarios().subscribe((usuarios) => {
-    console.log(usuarios);
+  /*this.usuarioService.getUsuarios().subscribe((usuarios) => {
+      console.log(usuarios);
+    });*/
+  }
+  buscarUsuario(nombre: string){
+    this.usuarioService.getUsuario(nombre).subscribe((usuario) => {
+      this.nombre = usuario.nombre;
+      this.apellido = usuario.apellido;
+      this.usuario = usuario.usuario;
+      this.correo = usuario.correo;
+      this.rol = usuario.rol;
+      this.password = usuario.password;
+      this.fecha_ingreso = usuario.fecha_ingreso;
+      console.log(usuario);
     });
   }
 }
