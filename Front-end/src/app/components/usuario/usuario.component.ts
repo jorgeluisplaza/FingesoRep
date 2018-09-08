@@ -22,9 +22,6 @@ export class UsuarioComponent implements OnInit {
     this.route.params.subscribe( params => this.buscarUsuario(params['id']));
   }
   ngOnInit() {
-  /*this.usuarioService.getUsuarios().subscribe((usuarios) => {
-      console.log(usuarios);
-    });*/
   }
   buscarUsuario(nombre: string){
     this.usuarioService.getUsuario(nombre).subscribe((usuario) => {
