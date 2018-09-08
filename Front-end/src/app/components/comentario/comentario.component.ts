@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./comentario.component.css']
 })
 export class ComentarioComponent implements OnInit {
-  @Input('id') id_idea: string;
+  @Input() id_idea: string;
   autor: string;
   titulo: string;
   comentario: string;
@@ -31,9 +31,5 @@ export class ComentarioComponent implements OnInit {
 
   ngOnInit() {
 
-  }
-
-  crearComentario(id_usuario, tituloInput, comentario){
-    this.comentarioService.crearComentario(id_usuario , tituloInput, comentario, new Date());
   }
 }

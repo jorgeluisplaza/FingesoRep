@@ -1,13 +1,13 @@
-<form [formGroup]="formEdit" novalidate>
+<form [formGroup]="formEdit">
   <div class="form-group">
     <label>Título:</label>
-    <input formGroupName="tituloInput" type="text" class="form-control" value="{{tituloInput}}" />
+    <input formGroupName="titulo" type="text" class="form-control" value="{{titulo}}" />
   </div>
   <label>Resumen de la idea:</label>
-  <textarea formGroupName="resumenInput" class="form-control" value="{{resumenInput}}">
+  <textarea formGroupName="resumen" class="form-control" value="{{resumen}}">
   </textarea>
   <label>Idea:</label>
-  <textarea formGroupName="contenidoInput" class="form-control" value="{{contenidoInput}}">
+  <textarea formGroupName="contenido" class="form-control" value="{{contenido}}">
   </textarea>
   <h6>FormGroup Model (<code>formEdit.value</code>)</h6>
   <div><pre><code>{{ formEdit?.value | json }}</code></pre></div>

@@ -18,6 +18,7 @@ import {ComentarioService} from './services/comentario.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ListaRetoComponent } from './components/lista-reto/lista-reto.component';
 import { AdministradorComponent } from './components/administrador/administrador.component';
+import { IdeaFormComponent} from './components/idea/ideaForm.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CrearComentarioComponent } from './components/comentario/crear-comentario/crear-comentario.component';
 
@@ -43,7 +44,7 @@ const routes: Routes = [
     ComentarioComponent,
     ListaRetoComponent,
     AdministradorComponent,
-    NavBarComponent
+    NavBarComponent,
     IdeaFormComponent,
     CrearComentarioComponent
   ],

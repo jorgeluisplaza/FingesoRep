@@ -24,6 +24,7 @@ export class ComentarioService {
   getComentariosIdea(id_idea: string) {
     return this.http.get( this.baseUrl + id_idea + '/comentarios').subscribe( res => console.log('Response get comentarios idea OK'));
   }
+
   addComentarioIdea(id_idea: string, id_comentario: string) {
     return this.http.post( this.baseUrl + id_idea + '/comentar', id_comentario)
       .subscribe( res => console.log('Response add comentario idea OK'));

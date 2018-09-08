@@ -9,28 +9,27 @@ import {IdeaComponent} from './idea.component';
   styleUrls: []
 })
 
-export class IdeaFormComponent implements OnInit{
-  @Input('tituloInput') tituloInput: string;
-  @Input('resumen') resumenInput: string;
-  @Input('contenidoInput') contenidoInput: string;
-  fecha_creacion: string;
+export class IdeaFormComponent implements OnInit {
+  @Input() titulo: string;
+  @Input() resumen: string;
+  @Input() contenido: string;
   formEdit: FormGroup;
 
   constructor(private ideaService: IdeaService, private ideaComponent: IdeaComponent, private form: FormBuilder){
     this.initForm();
   }
-  ngOnInit(){
+  ngOnInit() {
   }
 
-  initForm(){
+  initForm() {
     this.formEdit = this.form.group({
-      tituloInput: ['', Validators.required],
-      resumenInput: ['', Validators.required],
-      contenidoInput: ['', Validators.required],
+      titulo: ['', Validators.required],
+      resumen: ['', Validators.required],
+      contenido: ['', Validators.required],
     });
   }
 
-  update(id_idea, tituloInput, resumen, contenidoInput){
-    this.ideaService.editarIdea(id_idea, tituloInput, resumen, contenidoInput);
+  update(id_idea, titulo, resumen, contenido) {
+    this.ideaService.editarIdea(id_idea, titulo, resumen, contenido);
   }
 }

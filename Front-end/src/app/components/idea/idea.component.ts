@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeaService } from '../../services/idea.service';
 import {ActivatedRoute} from '@angular/router';
-import { Input} from '@angular/core';
 
 
 @Component({
@@ -10,7 +9,7 @@ import { Input} from '@angular/core';
   styleUrls: ['./idea.component.css']
 })
 export class IdeaComponent implements OnInit {
-  id: string;
+  id_idea: string;
   titulo: string;
   resumen: string;
   contenido: string;
@@ -20,7 +19,7 @@ export class IdeaComponent implements OnInit {
     this.route.params.subscribe( params => this.buscarIdea(params['id']));
   }
   ngOnInit() {
-    this.id = this.route.params['id'];
+    this.id_idea = this.route.params['id'];
   }
 
   buscarIdea(id: string) {

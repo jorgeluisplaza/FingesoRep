@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class RetoComponent implements OnInit {
 
-  tituloInput: string;
+  titulo: string;
   problema: string;
   objetivos: string;
   contenido: string;

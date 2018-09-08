@@ -18,13 +18,17 @@ export class CrearComentarioComponent implements OnInit {
   ngOnInit() {
   }
 
-  enviar(comentario) {
-    this.comentarioService.crearComentario('asdasd', comentario, new Date());
+  enviar(nombre_usuario, comentario) {
+    this.comentarioService.crearComentario(nombre_usuario , comentario, new Date());
   }
 
-  formComentario(){
-  this.formData = this.form.group({
-    tituloInput: ['', Validators.required ],
-    comentario: ['', Validators.required ],
-  });
+  formComentario() {
+    this.formData = this.form.group({
+      comentario: ['', Validators.required],
+    });
+  }
+
+  crearComentario(nombre, tituloInput, comentario){
+      this.comentarioService.crearComentario(nombre, comentario, new Date());
+  }
 }
