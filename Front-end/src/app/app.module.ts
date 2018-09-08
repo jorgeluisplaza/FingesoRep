@@ -17,9 +17,12 @@ import { ComentarioComponent } from './components/comentario/comentario.componen
 import {RetoService} from './services/reto.service';
 import {ComentarioService} from './services/comentario.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AdministradorComponent } from './components/administrador/administrador.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
+  { path: 'admin', component: AdministradorComponent},
   { path: 'ideas/:id', component: IdeaComponent},
   { path: 'usuarios', component: UsuarioComponent},
   { path: 'usuarios/:id', component: UsuarioComponent},
@@ -37,7 +40,9 @@ const routes: Routes = [
     IdeaComponent,
     RetoComponent,
     ComentarioComponent,
-    IdeaFormComponent
+    IdeaFormComponent,
+    AdministradorComponent,
+    NavBarComponent
   ],
   imports: [
     HttpModule,
