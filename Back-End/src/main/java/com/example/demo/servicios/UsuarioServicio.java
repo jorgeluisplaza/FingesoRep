@@ -75,7 +75,7 @@ public class UsuarioServicio {
     public Usuario agregarComentario(@PathVariable String id_usuario, @RequestBody Comentario comentario){
         Usuario usuario = this.usuarioRepository.findUsuarioById(id_usuario);
         Comentario comentarioRepo = this.comentarioRepository.findComentarioById(comentario.getId());
-        comentario.setAutor(usuario);
+        comentario.setAutor(usuario.getNombre());
         this.comentarioRepository.save(comentario);
         List<Comentario> comentariosUsuario = usuario.getComentarios();
         comentariosUsuario.add(comentario);

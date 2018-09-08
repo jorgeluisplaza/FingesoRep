@@ -11,8 +11,7 @@ public class Comentario {
     @Id
     private String id;
 
-    @DBRef
-    private Usuario autor;
+    private String autor;
 
     private String texto;
     private String hora;
@@ -29,11 +28,11 @@ public class Comentario {
         this.id = id;
     }
 
-    public Usuario getAutor() {
+    public String getAutor() {
         return autor;
     }
 
-    public void setAutor(Usuario autor) {
+    public void setAutor(String autor) {
         this.autor = autor;
     }
 

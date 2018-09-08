@@ -1,7 +1,7 @@
 <div *ngIf="usuarios">
   <ul>
     <li *ngFor="let usuario of usuarios">
-      <a routerLink="/usuario/{{usuario._id}}">{{usuario.nombre}}, {{usuario.apellido}}</a>
+      <a routerLink="/usuario/{{usuario.id}}">{{usuario.nombre}}, {{usuario.apellido}}</a>
     </li>
   </ul>
 </div>

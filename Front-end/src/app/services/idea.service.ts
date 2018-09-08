@@ -14,11 +14,11 @@ export class IdeaService {
   getIdeaById(id: string) {
     return this.http.get(this.baseUrl + '/' + id ).pipe(map(res => res.text() ? res.json() : {}));
   }
-  editarIdea(id_idea: string, titulo: string, contenido: string, resumen: string){
+  editarIdea(id_idea: string, tituloInput: string, contenidoInput: string, resumen: string){
     const idea = {
       id: id_idea,
-      titulo: titulo,
-      contenido: contenido,
+      tituloInput: tituloInput,
+      contenidoInput: contenidoInput,
       resumen: resumen
     };
     return this.http.patch(this.baseUrl + '/editar', idea).subscribe( res => console.log('Response editar idea OK'));

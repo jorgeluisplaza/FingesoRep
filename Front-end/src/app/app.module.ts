@@ -17,6 +17,7 @@ import { ComentarioComponent } from './components/comentario/comentario.componen
 import {RetoService} from './services/reto.service';
 import {ComentarioService} from './services/comentario.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CrearComentarioComponent } from './components/comentario/crear-comentario/crear-comentario.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
@@ -37,7 +38,8 @@ const routes: Routes = [
     IdeaComponent,
     RetoComponent,
     ComentarioComponent,
-    IdeaFormComponent
+    IdeaFormComponent,
+    CrearComentarioComponent
   ],
   imports: [
     HttpModule,

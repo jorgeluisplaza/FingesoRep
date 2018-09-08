@@ -10,9 +10,9 @@ import {IdeaComponent} from './idea.component';
 })
 
 export class IdeaFormComponent implements OnInit{
-  @Input('titulo') tituloInput: string;
+  @Input('tituloInput') tituloInput: string;
   @Input('resumen') resumenInput: string;
-  @Input('contenido') contenidoInput: string;
+  @Input('contenidoInput') contenidoInput: string;
   fecha_creacion: string;
   formEdit: FormGroup;
 
@@ -30,7 +30,7 @@ export class IdeaFormComponent implements OnInit{
     });
   }
 
-  update(id_idea, titulo, resumen, contenido){
-    this.ideaService.editarIdea(id_idea, titulo, resumen, contenido);
+  update(id_idea, tituloInput, resumen, contenidoInput){
+    this.ideaService.editarIdea(id_idea, tituloInput, resumen, contenidoInput);
   }
 }
