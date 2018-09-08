@@ -66,6 +66,38 @@ public class Reto {
         this.fecha_creacion = fecha_creacion;
     }
 
+    public String getProblema() {
+        return problema;
+    }
+
+    public void setProblema(String problema) {
+        this.problema = problema;
+    }
+
+    public String getPlazo() {
+        return plazo;
+    }
+
+    public void setPlazo(String plazo) {
+        this.plazo = plazo;
+    }
+
+    public String getRestricciones() {
+        return restricciones;
+    }
+
+    public void setRestricciones(String restricciones) {
+        this.restricciones = restricciones;
+    }
+
+    public String getObjetivos() {
+        return objetivos;
+    }
+
+    public void setObjetivos(String objetivos) {
+        this.objetivos = objetivos;
+    }
+
 
     //@DBRef
     //private Evaluador autor;

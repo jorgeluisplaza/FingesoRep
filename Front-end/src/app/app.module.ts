@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { IdeaComponent } from './components/idea/idea.component';
-import { IdeaFormComponent } from './components/idea/ideaForm.component';
 
 import { UsuarioService} from './services/usuario.service';
 import { IdeaService } from './services/idea.service';
@@ -17,6 +16,7 @@ import { ComentarioComponent } from './components/comentario/comentario.componen
 import {RetoService} from './services/reto.service';
 import {ComentarioService} from './services/comentario.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ListaRetoComponent } from './components/lista-reto/lista-reto.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'retos/:id', component: RetoComponent},
   { path: 'ideas/:id_idea/comentarios', component: ComentarioComponent},
   { path: 'ideas/:id_idea/comentar/:id_comentario', component: ComentarioComponent},
-  { path: 'usuarios/:id_usuario/comentar', component: ComentarioComponent}
+  { path: 'usuarios/:id_usuario/comentar', component: ComentarioComponent},
 ];
 
 @NgModule({
@@ -37,7 +37,7 @@ const routes: Routes = [
     IdeaComponent,
     RetoComponent,
     ComentarioComponent,
-    IdeaFormComponent
+    ListaRetoComponent
   ],
   imports: [
     HttpModule,

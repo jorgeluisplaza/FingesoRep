@@ -13,6 +13,6 @@ export class RetoService {
 
   constructor(private http: Http) { }
   getRetoById(id: string) {
-    return this.http.get(this.baseUrl + '/' + id ).pipe(map(response => response.json()));
+    return this.http.get(this.baseUrl + '/' + id ).pipe(map(res => res.text() ? res.json() : {}));
   }
 }

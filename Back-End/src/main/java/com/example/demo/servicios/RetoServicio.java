@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(value = "*")
 @RestController
 @RequestMapping(value = "/retos")
 public class RetoServicio {
@@ -28,5 +28,9 @@ public class RetoServicio {
     @ResponseBody
     public List<Reto> indexRetos(){ return this.retoRepository.findAll(); }
 
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    public Reto mostrarReto(@PathVariable String id){
+        return this.retoRepository.findRetoById(id);
+    }
 
 }
