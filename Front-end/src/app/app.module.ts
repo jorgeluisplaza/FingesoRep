@@ -20,11 +20,14 @@ import { ListaRetoComponent } from './components/lista-reto/lista-reto.component
 import { AdministradorComponent } from './components/administrador/administrador.component';
 import { IdeaFormComponent} from './components/idea/ideaForm.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AdminUsersComponent } from './components/administrador/admin-users/admin-users.component';
 import { CrearComentarioComponent } from './components/comentario/crear-comentario/crear-comentario.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
   { path: 'admin', component: AdministradorComponent},
+  { path: 'admin/users', component: AdminUsersComponent},
   { path: 'ideas/:id', component: IdeaComponent},
   { path: 'usuarios', component: UsuarioComponent},
   { path: 'usuarios/:id', component: UsuarioComponent},
