@@ -14,7 +14,9 @@ export class UsuarioService {
   getUsuarios() {
     return this.http.get(this.baseUrl).pipe(map(response => response.json()));
   }
+
   getUsuario(nombre: string) {
     return this.http.get(this.baseUrl + '/' + nombre ).pipe(map(response => response.json()));
   }
+
 }

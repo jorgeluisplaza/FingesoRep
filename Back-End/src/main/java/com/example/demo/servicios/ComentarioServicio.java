@@ -19,7 +19,7 @@ public class ComentarioServicio {
     @Autowired
     private ComentarioRepository comentarioRepository;
 
-    @RequestMapping(value = "/comentarios/crear", method = RequestMethod.POST)
+    @RequestMapping(value = "/crear", method = RequestMethod.POST)
     @ResponseBody
     public Comentario crearComentario(Comentario comentario){
         return this.comentarioRepository.save(comentario);

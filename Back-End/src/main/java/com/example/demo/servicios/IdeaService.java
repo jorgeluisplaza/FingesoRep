@@ -46,11 +46,20 @@ public class IdeaService {
         return idea.getComentarios();
     }
 
+    @RequestMapping(value = "{id_idea}/editar", method = RequestMethod.UPDATE)
+    @ResponseBody
+    public void editarIdea(@RequestBody idea Idea){
+	Idea ideaRepo = this.ideaRepository.findIdeaById(idea.getId());
+	ideaRepo.setTitulo(idea.titulo);
+	ideaRepo.setContenido(idea.contenido);
+	ideaRepo.setResumen(idea.resumen);
+    }
+
     @RequestMapping(value = "{id_idea}/comentar", method = RequestMethod.POST)
     @ResponseBody
-    public Idea comentar(@PathVariable String id_idea, @RequestBody Comentario comentario){
+    public Idea comentar(@PathVariable String id_idea, @RequestBody String id_comentario){
         Idea idea = this.ideaRepository.findIdeaById(id_idea);
-        Comentario comentarioRepo = this.comentarioRepository.findComentarioById(comentario.getId());
+        Comentario comentarioRepo = this.comentarioRepository.findComentarioById(id_comentario);
         List<Comentario> comentariosDeIdea = idea.getComentarios();
         comentariosDeIdea.add(comentarioRepo);
         idea.setComentarios(comentariosDeIdea);

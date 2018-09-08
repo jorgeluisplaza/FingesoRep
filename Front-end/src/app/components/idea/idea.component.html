@@ -56,9 +56,12 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Nueva versión de tu idea</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                    <h4 class="modal-title">Nueva versión de tu idea</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                </div>
                                 <div class="modal-body">
-                                    <div class="form-group"><label>Título:</label><input type="text" class="form-control" value="Una idea innovadora" /></div><label>Resumen de la idea:</label><textarea class="form-control">Sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lac. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</textarea><label>Idea:</label><textarea class="form-control">Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dict vel in justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</textarea></div>
+                                  <app-idea-update-form [titulo]="titulo" [resumen]="resumen" [contenido]="contenido"></app-idea-update-form>
+                                </div>
                                 <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button" style="background-color:rgb(6,153,215);">Guardar</button></div>
                             </div>
                         </div>
@@ -70,42 +73,13 @@
                         <div class="card-body" style="overflow:auto; height: 30%;">
                             <ul class="list-group">
                                 <li class="list-group-item" style="margin-bottom:6px;">
-                                    <div class="media">
-                                        <div></div>
-                                        <div class="media-body">
-                                            <div class="media" style="overflow:visible;">
-                                                <div><img src="assets/img/user-photo4.jpg" class="mr-3" style="width: 25px; height:25px;"></div>
-                                                <div class="media-body" style="overflow:visible;">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <p><a href="#">Foo_Bar:</a>&nbsp;No me parece apropiado<br>
-<small class="text-muted">6 de Agosto, 2018 @ 10:35am </small></p><button class="btn btn-light btn-sm"
-                                                                type="button" style="margin: 0; background-color: lightgray;">Responder</button></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <app-comentario></app-comentario>
                                 </li>
-                                <li class="list-group-item" style="margin-bottom:6px;">
-                                    <div class="media">
-                                        <div></div>
-                                        <div class="media-body">
-                                            <div class="media" style="overflow:visible;">
-                                                <div><img src="assets/img/user-photo4.jpg" class="mr-3" style="width: 25px; height:25px;"></div>
-                                                <div class="media-body" style="overflow:visible;">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <p><a href="#">Usuario123:</a>&nbsp;Totalmente de acuerdo. <br>
-<small class="text-muted">8 de Agosto, 2019 @ 10:35am </small></p><button class="btn btn-light btn-sm"
-                                                                type="button" style="margin: 0; background-color: lightgray">Responder</button></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul><label>Escribe un comentario:&nbsp;</label><textarea class="form-control"></textarea><button class="btn btn-light" type="button" style="margin-left:0; background-color: #639eff; color: white;">Comentar</button></div>
+                            </ul>
+                          <label>Escribe un comentario:&nbsp;</label>
+                          <textarea class="form-control"></textarea>
+                          <button class="btn btn-light" type="button" style="margin-left:0; background-color: #639eff; color: white;">Comentar</button>
+                        </div>
                     </div>
                     <div></div>
                     <div class="modal fade" role="dialog" tabindex="-1">

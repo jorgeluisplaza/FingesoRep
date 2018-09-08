@@ -1,0 +1,27 @@
+<form novalidate>
+  <div class="form-group">
+    <label>Título:</label>
+    <input ngModel="tituloInput" type="text" class="form-control" value="{{tituloInput}}" />
+    <div *ngIf="formEdit.controls['titulo'].invalid && (formEdit.controls['titulo'].dirty || formEdit.controls['titulo'].touched)" class="alert alert-danger">
+      <div *ngIf="formEdit.controls['titulo'].errors.required">
+        Ingrese un título.
+      </div>
+    </div>
+  </div>
+  <label>Resumen de la idea:</label>
+  <textarea ngModel="resumenInput" class="form-control" value="{{resumenInput}}">
+  </textarea>
+  <div *ngIf="formEdit.controls['resumen'].invalid && (formEdit.controls['resumen'].dirty || formEdit.controls['resumen'].touched)" class="alert alert-danger">
+    <div *ngIf="formEdit.controls['resumen'].errors.required">
+      Ingrese el contenido de la idea.
+    </div>
+  </div>
+  <label>Idea:</label>
+  <textarea ngModel="contenidoInput" class="form-control" value="{{contenidoInput}}">
+  </textarea>
+  <div *ngIf="formEdit.controls['contenido'].invalid && (formEdit.controls['contenido'].dirty || formEdit.controls['contenido'].touched)" class="alert alert-danger">
+    <div *ngIf="formEdit.controls['contenido'].errors.required">
+      Ingrese el contenido de la idea.
+    </div>
+  </div>
+</form>
