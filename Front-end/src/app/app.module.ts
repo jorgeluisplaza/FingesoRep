@@ -24,6 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AdminUsersComponent } from './components/administrador/admin-users/admin-users.component';
 import { CrearComentarioComponent } from './components/comentario/crear-comentario/crear-comentario.component';
 import {ListaRetoServiceService} from './services/lista-reto-service.service';
+import { CrearRetoComponent } from './components/crear-reto/crear-reto.component';
+import {CrearRetoService} from './services/crear-reto.service';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
@@ -36,7 +38,8 @@ const routes: Routes = [
   { path: 'ideas/:id_idea/comentarios', component: ComentarioComponent},
   { path: 'ideas/:id_idea/comentar/:id_comentario', component: ComentarioComponent},
   { path: 'usuarios/:id_usuario/comentar', component: ComentarioComponent},
-  { path: 'listaretos', component: ListaRetoComponent}
+  { path: 'listaretos', component: ListaRetoComponent},
+  { path: 'crearreto', component: CrearRetoComponent}
 ];
 
 @NgModule({
@@ -52,7 +55,8 @@ const routes: Routes = [
     NavBarComponent,
     AdminUsersComponent,
     FooterComponent,
-    CrearComentarioComponent
+    CrearComentarioComponent,
+    CrearRetoComponent
   ],
   imports: [
     HttpModule,
@@ -65,7 +69,8 @@ const routes: Routes = [
     IdeaService,
     RetoService,
     ListaRetoServiceService,
-    ComentarioService
+    ComentarioService,
+    CrearRetoService
   ],
   bootstrap: [AppComponent]
 })
