@@ -48,8 +48,10 @@ const routes: Routes = [
     ListaRetoComponent,
     AdministradorComponent,
     NavBarComponent,
-    IdeaFormComponent,
+    AdminUsersComponent,
+    FooterComponent,
     CrearComentarioComponent
+    IdeaFormComponent,
   ],
   imports: [
     HttpModule,
