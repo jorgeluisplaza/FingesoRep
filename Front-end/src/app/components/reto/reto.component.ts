@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< Updated upstream
 import { RetoService } from '../../services/reto.service';
-=======
-import {RetoService} from '../../services/reto.service';
->>>>>>> Stashed changes
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -14,7 +10,6 @@ import {ActivatedRoute} from '@angular/router';
 export class RetoComponent implements OnInit {
 
   titulo: string;
-<<<<<<< Updated upstream
   problema: string;
   objetivo: string;
   resumen: string;
@@ -40,20 +35,4 @@ export class RetoComponent implements OnInit {
       this.fecha_creacion = Reto.fecha_creacion;
     });
   }
-=======
-  contenido: string;
-
-  constructor(private retoService: RetoService, private route: ActivatedRoute) {
-    this.route.params.subscribe(params => this.getRetos(params['id']));
-  }
-  ngOnInit() {
-  }
-  getRetos(id: String){
-    this.retoService.getRetos().subscribe((Reto) => {
-      this.titulo = Reto.titulo;
-      this.contenido = Reto.contenido;
-    });
-  }
-
->>>>>>> Stashed changes
 }

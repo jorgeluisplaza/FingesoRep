@@ -14,8 +14,6 @@ export class IdeaService {
   getIdeaById(id: string) {
     return this.http.get(this.baseUrl + '/' + id ).pipe(map(res => res.text() ? res.json() : {}));
   }
-<<<<<<< Updated upstream
-
   editarIdea(id_idea: string, titulo: string, contenido: string, resumen: string){
     const idea = {
       id: id_idea,
@@ -25,6 +23,4 @@ export class IdeaService {
     };
     return this.http.patch(this.baseUrl + '/editar', idea).subscribe( res => console.log('Response editar idea OK'));
   }
-=======
->>>>>>> Stashed changes
 }
