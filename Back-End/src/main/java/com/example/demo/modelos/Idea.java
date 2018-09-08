@@ -13,6 +13,8 @@ public class Idea {
     private String id;
 
     private String titulo;
+
+    private String resumen;
     private String contenido;
     private String fecha_creacion;
 
@@ -43,6 +45,14 @@ public class Idea {
 
     public String getContenido() {
         return contenido;
+    }
+
+    public String getResumen() {
+        return resumen;
+    }
+
+    public void setResumen(String resumen) {
+        this.resumen = resumen;
     }
 
     public void setContenido(String contenido) {

@@ -17,13 +17,17 @@ export class UsuarioComponent implements OnInit {
   password: string;
   fecha_ingreso: string;
 
+  private usuarios: any;
+
 
   constructor(private usuarioService: UsuarioService, private route: ActivatedRoute) {
     this.route.params.subscribe( params => this.buscarUsuario(params['id']));
+    this.getUsuarios();
   }
   ngOnInit() {
   }
-  buscarUsuario(nombre: string){
+
+  buscarUsuario(nombre: string) {
     this.usuarioService.getUsuario(nombre).subscribe((usuario) => {
       this.nombre = usuario.nombre;
       this.apellido = usuario.apellido;
@@ -33,6 +37,12 @@ export class UsuarioComponent implements OnInit {
       this.password = usuario.password;
       this.fecha_ingreso = usuario.fecha_ingreso;
       console.log(usuario);
+    });
+  }
+
+  getUsuarios() {
+    this.usuarioService.getUsuarios().subscribe(data => {
+      this.usuarios = data;
     });
   }
 }

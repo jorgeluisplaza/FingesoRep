@@ -1,4 +1,4 @@
-<form novalidate>
+<form [formGroup]="formEdit" novalidate>
   <div class="form-group">
     <label>Título:</label>
     <input ngModel="tituloInput" type="text" class="form-control" value="{{tituloInput}}" />

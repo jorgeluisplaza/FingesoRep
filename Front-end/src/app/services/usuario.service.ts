@@ -12,7 +12,7 @@ export class UsuarioService {
   constructor(private http: Http) { }
 
   getUsuarios() {
-    return this.http.get(this.baseUrl).pipe(map(response => response.json()));
+    return this.http.get(this.baseUrl).pipe(map(response => response.json())); // .pipe(map(response => response.json()));
   }
 
   getUsuario(nombre: string) {

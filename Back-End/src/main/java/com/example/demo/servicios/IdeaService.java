@@ -46,13 +46,13 @@ public class IdeaService {
         return idea.getComentarios();
     }
 
-    @RequestMapping(value = "{id_idea}/editar", method = RequestMethod.UPDATE)
+    @RequestMapping(value = "{id_idea}/editar", method = RequestMethod.PATCH)
     @ResponseBody
-    public void editarIdea(@RequestBody idea Idea){
+    public void editarIdea(@RequestBody Idea idea){
 	Idea ideaRepo = this.ideaRepository.findIdeaById(idea.getId());
-	ideaRepo.setTitulo(idea.titulo);
-	ideaRepo.setContenido(idea.contenido);
-	ideaRepo.setResumen(idea.resumen);
+	ideaRepo.setTitulo(idea.getTitulo());
+	ideaRepo.setContenido(idea.getContenido());
+	ideaRepo.setResumen(idea.getResumen());
     }
 
     @RequestMapping(value = "{id_idea}/comentar", method = RequestMethod.POST)

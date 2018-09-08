@@ -1,11 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IdeaService} from '../../services/idea.service';
+import {IdeaComponent} from './idea.component';
 
 @Component({
   selector: 'app-idea-update-form',
   templateUrl: './editIdeaForm.html',
-  styleUrls: ['./ideaForm.component.css']
+  styleUrls: []
 })
 
 export class IdeaFormComponent implements OnInit{
@@ -15,7 +16,7 @@ export class IdeaFormComponent implements OnInit{
   fecha_creacion: string;
   formEdit: FormGroup;
 
-  constructor(private ideaService: IdeaService, private form: FormBuilder){
+  constructor(private ideaService: IdeaService, private ideaComponent: IdeaComponent, private form: FormBuilder){
     this.initForm();
   }
   ngOnInit(){
@@ -29,9 +30,7 @@ export class IdeaFormComponent implements OnInit{
     });
   }
 
-  update(id_idea){
-    this.ideaService.editarIdea(id_idea).subscribe((response) =>{
-      console.log(response);
-    });
+  update(id_idea, titulo, resumen, contenido){
+    this.ideaService.editarIdea(id_idea, titulo, resumen, contenido);
   }
 }

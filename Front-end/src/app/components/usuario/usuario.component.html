@@ -1,6 +1,7 @@
-<h2>Nombre usuario: {{usuario}} </h2>
-<h4>Nombre real: {{nombre}} {{apellido}}</h4>
-<h6>Correo: {{correo}} </h6>
-<h6>Rol: {{rol}} </h6>
-<h6>Fecha ingreso: {{fecha_ingreso}} </h6>
-<router-outlet></router-outlet>
+<div *ngIf="usuarios">
+  <ul>
+    <li *ngFor="let usuario of usuarios">
+      <a routerLink="/usuario/{{usuario._id}}">{{usuario.nombre}}, {{usuario.apellido}}</a>
+    </li>
+  </ul>
+</div>
