@@ -11,10 +11,10 @@ export class RetoComponent implements OnInit {
 
   tituloInput: string;
   problema: string;
-  objetivo: string;
-  resumen: string;
-  contenidoInput: string;
+  objetivos: string;
+  contenido: string;
   plazo: string;
+  restricciones: string;
   fecha_creacion: string;
 
   constructor(private retoService: RetoService, private route: ActivatedRoute) {
@@ -25,14 +25,14 @@ export class RetoComponent implements OnInit {
   }
 
   buscarReto(id: string){
-    this.retoService.getRetoById(id).subscribe((Reto) => {
-      this.tituloInput = Reto.tituloInput;
-      this.problema = Reto.problema;
-      this.objetivo = Reto.objetivo;
-      this.plazo = Reto.plazo;
-      this.resumen = Reto.resumen;
-      this.contenidoInput = Reto.contenidoInput;
-      this.fecha_creacion = Reto.fecha_creacion;
+    this.retoService.getRetoById(id).subscribe((reto) => {
+      this.titulo = reto.titulo;
+      this.objetivos = reto.objetivos;
+      this.restricciones = reto.restricciones;
+      this.problema = reto.problema;
+      this.plazo = reto.plazo;
+      this.contenido = reto.contenido;
+      this.fecha_creacion = reto.fecha_creacion;
     });
   }
 }

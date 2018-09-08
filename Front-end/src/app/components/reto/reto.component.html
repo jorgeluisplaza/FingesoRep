@@ -30,35 +30,33 @@
 
 <body>
     <div>
-        <nav class="navbar navbar-light navbar-expand-md sticky-top bg-light navigation-clean-button" style="color:rgb(0,0,0);background-color:rgb(252,252,252);  margin-bottom : 10px;  padding-bottom: 0;">
-            <div class="container"><a class="navbar-brand d-inline-block" href="#">Alaya Digital Solutions<p class="lead text-info" style="font-size:17px;"><em>Plataforma de innovación</em></p></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div
-                    class="collapse navbar-collapse float-none" id="navcol-1">
-                    <ul class="nav navbar-nav mr-auto"></ul><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="#">Bienvenido Nombre_usuario</a><a href="#" class="login">Salir</a></span></div>
-    </div>
-    </nav>
     </div>
     <div class="article-clean">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
                     <div class="intro">
-                        <h2 class="text-center margin-top: 15px;">Reto #1 Como pasar el ramo</h2>
+                        <h2 class="text-center margin-top: 15px;">{{titulo}}</h2>
                         <p class="text-center"><span class="by">Creado por&nbsp;<a href="#">Nombre_usuario</a></span><span class="by"></span><a href="#"></a> <span class="date">Jueves 23 de agosto, 2018</span></p>
                     </div>
                     <h5>Problema</h5>
                     <div class="text">
-                        <p>Sed lobortis mi. Suspendisse vel placerat ligula. <span style="text-decoration: underline;">Vivamus</span> ac sem lac. Ut vehicula rhoncus elementum. Etiam quis tristique lectus.&nbsp;</p>
+                        <p>{{problema}}</p>
                         <h5>Objetivos</h5>
-                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac lacus. <strong>Ut vehicula rhoncus</strong>&nbsp;</p>
+                        <p>{{objetivos}}</p>
                         <h5>Especificación del reto</h5>
+                        <dt>{{contenido}}</dt>
+                        <br>
                         <dl>
                           <dt>Restricciones</dt>
-                            <dd>is euismod sempers porta gravida at eget metus.</dd>
+                            <dd>{{restricciones}}</dd>
+                          <br>
                           <dt>Plazo del reto</dt>
-                            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit</dd>
+                            <dd>{{plazo}}</dd>
+                          <br>
                           <dt>Beneficios</dt>
-                            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+                            <dd>{{contenido}}</dd>
+                          <br>
                         </dl>
                     </div>
                         <figure></figure>
@@ -76,69 +74,7 @@
                         </div>
                     </div>
                 </div>
-            <div class="modal fade" role="dialog" tabindex="-1" id="modal2">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Nueva versión de un reto</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
-                        <div class="modal-body"><label>tituloInput:</label>
-                            <div class="form-group"><input type="text" class="form-control" value="Sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lac. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. "/></div><label>Objetivos:</label><input type="text" class="form-control" value="Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac lacus. Ut vehicula rhoncus" /><label>Restricciones:</label><textarea class="form-control">Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac lacus. Ut vehicula rhoncus </textarea><label>Plazos del reto:</label><textarea class="form-control">Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit</textarea><label>Beneficios:</label><textarea class="form-control">Etiam porta sem malesuada magna mollis euismod.</textarea></div>
-                        <div
-                            class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Cancelar</button><button class="btn btn-primary" type="button">Guardar</button></div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div>
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Hoy&nbsp;<span class="badge badge-pill badge-primary">5</span></a></li>
-                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Este mes&nbsp;<span class="badge badge-pill badge-primary">20</span></a></li>
-                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Más votados&nbsp;</a></li>
-                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">Todos&nbsp;<span class="badge badge-pill badge-primary">42</span></a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" role="tabpanel" id="tab-1">
-                            <div class="thread-list-head">
-                                <nav class="thread-pages">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                        <li class="page-item"><a class="page-link">1</a></li>
-                                        <li class="page-item"><a class="page-link">2</a></li>
-                                        <li class="page-item"><a class="page-link">3</a></li>
-                                        <li class="page-item"><a class="page-link">4</a></li>
-                                        <li class="page-item"><a class="page-link">5</a></li>
-                                        <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <ul class="thread-list">
-                                <li class="thread"><span class="time">Apr 21</span><span class="title">Maecenas finibus est nec pretium molestie. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                                <li
-                                    class="thread"><span class="time">Apr 20</span><span class="title">Curabitur consectetur velit pharetra ex eleifend tempor. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                                    <li
-                                        class="thread"><span class="time">Apr 20</span><span class="title">Fusce iaculis ligula at nisl mollis suscipit. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                                        <li
-                                            class="thread"><span class="time">Apr 18</span><span class="title">Pellentesque tempus augue id risus lacinia vehicula. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                                            <li
-                                                class="thread"><span class="time">Apr 17</span><span class="title">Quisque lacinia massa non ex lobortis congue. </span><span class="icon"> <a href="javascript:void(0)" class="subscribe"><i class="fa fa-star-o"></i></a><a href="javascript:void(0)" class="flag"><i class="fa fa-flag"></i></a></span></li>
-                            </ul>
-                        </div>
-                        <div class="tab-pane" role="tabpanel" id="tab-2"></div>
-                        <div class="tab-pane" role="tabpanel" id="tab-3"></div>
-                        <div class="tab-pane" role="tabpanel" id="tab-4"></div>
-                    </div>
-                </div><i class="fa fa-search"></i><label>Busca una idea:</label>
-                <form>
-                    <div class="form-group">
-                        <div class="input-group"><span class="input-group-addon"> </span><input class="form-control" type="search" name="search"></div>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
     <div class="footer-clean" style="color:rgb(6,6,6);background-color:#cccccc;">
