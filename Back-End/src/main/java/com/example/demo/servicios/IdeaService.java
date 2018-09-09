@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.management.DescriptorKey;
 import java.util.List;
 
+@CrossOrigin(value = "*")
 @RestController
 @RequestMapping(value = "/ideas")
 public class IdeaService {

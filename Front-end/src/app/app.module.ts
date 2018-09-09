@@ -8,6 +8,7 @@ import { IdeaComponent } from './components/idea/idea.component';
 
 import { UsuarioService} from './services/usuario.service';
 import { IdeaService } from './services/idea.service';
+import {CrearIdeaService} from './services/crear-idea.service';
 
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes} from '@angular/router';
@@ -26,6 +27,8 @@ import { CrearComentarioComponent } from './components/comentario/crear-comentar
 import {ListaRetoServiceService} from './services/lista-reto-service.service';
 import { CrearRetoComponent } from './components/crear-reto/crear-reto.component';
 import {CrearRetoService} from './services/crear-reto.service';
+import { ListaideasComponent } from './components/listaideas/listaideas.component';
+import { CrearIdeaComponent } from './components/crear-idea/crear-idea.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
@@ -39,7 +42,9 @@ const routes: Routes = [
   { path: 'ideas/:id_idea/comentar/:id_comentario', component: ComentarioComponent},
   { path: 'usuarios/:id_usuario/comentar', component: ComentarioComponent},
   { path: 'listaretos', component: ListaRetoComponent},
-  { path: 'crearreto', component: CrearRetoComponent}
+  { path: 'crearreto', component: CrearRetoComponent},
+  { path: 'lista-ideas', component: ListaideasComponent},
+  { path: 'crear-idea', component: CrearIdeaComponent}
 ];
 
 @NgModule({
@@ -57,7 +62,9 @@ const routes: Routes = [
     FooterComponent,
     CrearComentarioComponent,
     IdeaFormComponent,
-    CrearRetoComponent
+    CrearRetoComponent,
+    ListaideasComponent,
+    CrearIdeaComponent
   ],
   imports: [
     HttpModule,
@@ -71,7 +78,8 @@ const routes: Routes = [
     RetoService,
     ListaRetoServiceService,
     ComentarioService,
-    CrearRetoService
+    CrearRetoService,
+    CrearIdeaService
   ],
   bootstrap: [AppComponent]
 })

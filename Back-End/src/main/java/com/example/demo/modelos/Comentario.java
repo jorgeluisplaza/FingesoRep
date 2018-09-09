@@ -11,7 +11,6 @@ public class Comentario {
 
     @Id
     private String id;
-
     private String autor;
     private String texto;
     private String hora;
