@@ -26,18 +26,30 @@ public class RetoServicio {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "usuario/{id_usuario}/crear", method = RequestMethod.POST)
     @ResponseBody
-    public Reto createReto(@RequestBody Reto reto) { return this.retoRepository.save(reto); }
+    public Reto createReto(@PathVariable String id_usuario, @RequestBody Reto reto) {
+        Reto nuevoReto = this.retoRepository.save(reto);
+        Usuario usuario = this.usuarioRepository.findUsuarioById(id_usuario);
+        nuevoReto.setAutor(usuario.getNombre());
+        return this.retoRepository.save(nuevoReto);
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public List<Reto> indexRetos(){ return this.retoRepository.findAll(); }
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    @ResponseBody
     public Reto mostrarReto(@PathVariable String id){
         return this.retoRepository.findRetoById(id);
     }
+
+    /*@RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public Reto mostrarRetoPorTitulo(@RequestParam("titulo") String titulo){
+        return this.retoRepository.findRetoByTitulo(titulo);
+    }*/
 
     @RequestMapping(value = "{id_reto}/usuario/{id_usuario}/crear-idea", method = RequestMethod.POST)
     @ResponseBody
@@ -47,8 +59,9 @@ public class RetoServicio {
         Idea nuevaIdea = this.ideaRepository.save(idea);
 
         String nombre_usuario = usuario.getNombre();
+        String nombre_reto = retoRepo.getTitulo();
         nuevaIdea.setAutor(nombre_usuario);
-
+        nuevaIdea.setReto(nombre_reto);
         List<Idea> ideasUsuario = usuario.getIdeas();
         List<Idea> listaIdeas = retoRepo.getIdeas();
         listaIdeas.add(nuevaIdea);

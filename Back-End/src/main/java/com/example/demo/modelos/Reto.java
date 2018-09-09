@@ -13,6 +13,7 @@ public class Reto {
     @Id
     private String id;
 
+    private String autor;
     private String titulo;
     private String contenido;
     private String fecha_creacion;
@@ -37,6 +38,14 @@ public class Reto {
 
     public List<Idea> getIdeas() {
         return ideas;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     public void setIdeas(List<Idea> ideas) {

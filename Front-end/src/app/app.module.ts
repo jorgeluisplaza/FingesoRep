@@ -39,14 +39,11 @@ const routes: Routes = [
   { path: 'ideas/:id_idea', component: IdeaComponent},
   { path: 'usuarios', component: UsuarioComponent},
   { path: 'usuarios/:id', component: UsuarioComponent},
+  { path: 'crear-reto', component: CrearRetoComponent},
   { path: 'retos/:id', component: RetoComponent},
   { path: 'ideas/:id_idea/comentarios', component: ComentarioComponent},
-  { path: 'ideas/:id_idea/comentar/:id_comentario', component: ComentarioComponent},
   { path: 'usuarios/:id_usuario/comentar', component: ComentarioComponent},
-  { path: 'listaretos', component: ListaRetoComponent},
-  { path: 'crearreto', component: CrearRetoComponent},
-  { path: 'lista-ideas', component: ListaideasComponent},
-  { path: 'crear-idea', component: CrearIdeaComponent}
+  { path: 'retos', component: ListaRetoComponent},
 ];
 
 @NgModule({

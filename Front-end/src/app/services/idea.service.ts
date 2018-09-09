@@ -15,6 +15,13 @@ export class IdeaService {
     return this.http.get(this.baseUrl + '/' + id ).pipe(map(res => res.text() ? res.json() : {}));
   }
 
+  valorarIdea(id_idea: string, id_usuario: string, valoracion: string) {
+    const valoracionObj = {
+      valoracion: valoracion
+    };
+    return this.http.post(this.baseUrl + '/' + id_idea + '/usuario/' + id_usuario + '/valorar', valoracionObj).subscribe( res => console.log('Response valorar idea OK'));
+  }
+
   editarIdea(id_idea: string, tituloInput: string, contenidoInput: string, resumen: string){
     const idea = {
       id: id_idea,
