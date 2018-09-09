@@ -9,25 +9,25 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./crear-idea.component.css']
 })
 export class CrearIdeaComponent implements OnInit {
-  @Input() id: string;
+  @Input() id_reto: string;
   titulo: string;
   contenido: string;
   resumen: string;
   ideaForm: FormGroup;
 
-  constructor(private crearIdeaService: CrearIdeaService, private route: ActivatedRoute) {
-    this.route.paramMap.subscribe( params => this.id = params.get('id_idea'));
+  constructor(private crearIdeaService: CrearIdeaService) {
+    // this.route.paramMap.subscribe( params => this.id_reto = params.get('id_'));
     this.formIdea();
   }
 
   ngOnInit() {
   }
-  agregarIdea() {
+  /*agregarIdea() {
     this.crearIdeaService.crearIdea(this.titulo, this.contenido, this.resumen);
-  }
+  }*/
 
-  enviar(titulo, contenido, resumen) {
-    this.crearIdeaService.crearIdea(titulo, contenido, resumen);
+  enviar(id_usuario, titulo, contenido, resumen) {
+    this.crearIdeaService.crearIdea(this.id_reto, id_usuario, titulo, contenido, resumen);
   }
 
   formIdea() {

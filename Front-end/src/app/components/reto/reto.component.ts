@@ -10,12 +10,13 @@ import {ActivatedRoute} from '@angular/router';
 export class RetoComponent implements OnInit {
 
   id_reto: string;
+  autor: string;
   titulo: string;
   problema: string;
   objetivos: string;
   contenido: string;
   plazo: string;
-  restricciones: string;
+  beneficios: string;
   fecha_creacion: string;
 
   ideas: any = [];
@@ -37,7 +38,8 @@ export class RetoComponent implements OnInit {
     this.retoService.getRetoById(id).subscribe((reto) => {
       this.titulo = reto.titulo;
       this.objetivos = reto.objetivos;
-      this.restricciones = reto.restricciones;
+      this.autor = reto.autor;
+      this.beneficios = reto.beneficios;
       this.problema = reto.problema;
       this.plazo = reto.plazo;
       this.contenido = reto.contenido;

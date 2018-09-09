@@ -8,6 +8,7 @@ import com.example.demo.repositorios.ComentarioRepository;
 import com.example.demo.repositorios.IdeaRepository;
 import com.example.demo.repositorios.UsuarioRepository;
 
+import com.example.demo.repositorios.ValoracionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,7 +48,7 @@ public class UsuarioServicio {
     @CrossOrigin
     public Usuario updateUsuario(@RequestBody Usuario usuario){
         Usuario user = this.usuarioRepository.findUsuarioById(usuario.getId());
-        user.setRol("1");
+        user.setRol(1);
         System.out.println("nombre "+user.getRol());
         return this.usuarioRepository.save(user);
     }
@@ -79,9 +80,18 @@ public class UsuarioServicio {
     @ResponseBody
     @CrossOrigin(origins = "*")
     public Comentario agregarComentario(@PathVariable String id_idea, @PathVariable String id_usuario, @RequestBody Comentario comentario){
-        Comentario comentarioRepo = this.comentarioRepository.save(comentario);
         Usuario usuario = this.usuarioRepository.findUsuarioById(id_usuario);
         Idea idea = this.ideaRepository.findIdeaById(id_idea);
+        Comentario comentarioRepo = this.comentarioRepository.save(comentario);
+        if(usuario == null){
+            System.out.println("Usuario no encontrado");
+        }else if(idea == null){
+            System.out.println("Idea no encontrada");
+        }else if(comentarioRepo == null){
+            System.out.println("Error al guardar comentario");
+        }else{
+            System.out.println("Todo OK");
+        }
         String nombreAutor = usuario.getNombre();
         comentarioRepo.setAutor(nombreAutor);
         List<Comentario> comentariosIdea = idea.getComentarios();

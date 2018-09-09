@@ -12,7 +12,7 @@ export class CrearRetoService {
 
   constructor(private http: Http) { }
 
-  crearReto(titulo: string, contenido: string, plazo: string, problema: string, objetivos: string) {
+  crearReto(id_usuario: string, titulo: string, contenido: string, plazo: string, problema: string, objetivos: string) {
     const retoObj = {
       titulo: titulo,
       contenido: contenido,
@@ -20,7 +20,7 @@ export class CrearRetoService {
       problema: problema,
       objetivos: objetivos
     }
-    return this.http.post(this.baseUrl, retoObj, { headers: this.headers})
+    return this.http.post(this.baseUrl + '/usuario/' + id_usuario + '/crear', retoObj, { headers: this.headers})
       .subscribe(res => console.log('Response crear reto OK'));
   }
 }

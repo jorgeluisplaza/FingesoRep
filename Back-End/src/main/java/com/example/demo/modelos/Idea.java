@@ -13,16 +13,20 @@ public class Idea {
     private String id;
 
     private String titulo;
-
+    private String reto = "Idea Libre";
     private String resumen;
     private String contenido;
     private String fecha_creacion;
+    private float valoracion_promedio;
 
     @JsonIgnore
     @DBRef
     private List<Comentario> comentarios;
 
     private String autor;
+
+    @DBRef
+    private List<Valoracion> valoraciones;
 
 
     @JsonIgnore
@@ -32,6 +36,7 @@ public class Idea {
     public Idea(){
         this.comentarios = new ArrayList<Comentario>();
         this.versiones = new ArrayList<Idea>();
+        this.valoraciones = new ArrayList<Valoracion>();
         this.fecha_creacion = String.valueOf(java.time.LocalDateTime.now());
     }
 
@@ -39,6 +44,28 @@ public class Idea {
         return id;
     }
 
+    public List<Valoracion> getValoraciones() {
+        return valoraciones;
+    }
+
+    public void recalcular(){
+        float average = 0;
+        for(Valoracion val : this.valoraciones){
+            average += val.getValoracion();
+        }
+        this.valoracion_promedio = average/this.valoraciones.size();
+    }
+
+    public void setValoraciones(List<Valoracion> valoraciones) {
+        this.valoraciones = valoraciones;
+    }
+
+    public String getReto(){
+        return this.reto;
+    }
+    public void setReto(String reto){
+        this.reto = reto;
+    }
 
     public String getContenido() {
         return contenido;

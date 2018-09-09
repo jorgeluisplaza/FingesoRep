@@ -27,6 +27,7 @@ export class CrearComentarioComponent implements OnInit {
   enviar(id_idea, id_usuario, comentario) {
     console.log(comentario);
     this.comentarioService.crearComentario(id_idea, id_usuario, comentario);
+    location.reload(true);
   }
 
   formComentario() {

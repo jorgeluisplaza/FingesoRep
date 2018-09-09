@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface RetoRepository extends MongoRepository<Reto, Long> {
 
     public Reto findRetoById(String id);
+    public Reto findRetoByTitulo(String titulo);
 
 }

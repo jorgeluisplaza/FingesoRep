@@ -8,28 +8,20 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class CrearIdeaService {
 
-  private baseUrl = 'http://localhost:8080/ideas';
+  private baseUrl = 'http://localhost:8080';
   private headers = new Headers({'ContentType': 'application/json'});
 
   constructor(private http: Http) {
   }
 
-  crearIdea(titulo: string, contenido: string, resumen: string) {
+  crearIdea(id_reto: string, id_usuario: string, titulo: string, contenido: string, resumen: string) {
     const IdeaObj = {
       titulo: titulo,
       contenido: contenido,
       resumen: resumen,
     };
-    return this.http.post(this.baseUrl, IdeaObj, { headers: this.headers})
+    return this.http.post(this.baseUrl + '/retos/' + id_reto + '/usuario/' + id_usuario + '/crear-idea', IdeaObj, { headers: this.headers})
       .subscribe(res => console.log('Response crear idea OK'));
   }
 }
 
-  /*crearComentario(id_idea: string, id_usuario: string, texto: string) {
-    const ComentarioObj = {
-      texto: texto,
-    };
-    return this.http.post(this.baseUrl + 'ideas/' + id_idea + '/' + id_usuario + '/comentar', ComentarioObj, { headers: this.headers})
-      .subscribe(res => console.log('Response crear comentario OK'));
-  }
-}*/

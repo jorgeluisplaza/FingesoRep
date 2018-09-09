@@ -8,7 +8,7 @@ import { ActivatedRoute} from '@angular/router';
   styleUrls: ['./lista-reto.component.css']
 })
 export class ListaRetoComponent implements OnInit {
-  private retos: any;
+  public retos: any;
 
   constructor(private listaRetoService: ListaRetoServiceService, private route: ActivatedRoute) {
     this.getRetos();
