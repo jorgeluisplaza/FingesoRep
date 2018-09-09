@@ -34,6 +34,7 @@ public class IdeaService {
     }
 
     @RequestMapping(value = "{id_idea}", method = RequestMethod.GET)
+    @ResponseBody
     @CrossOrigin(origins = "*")
     public Idea mostrarIdea(@PathVariable String id_idea){
         return this.ideaRepository.findIdeaById(id_idea);
@@ -41,6 +42,7 @@ public class IdeaService {
 
     @RequestMapping(value = "{id_idea}/comentarios", method = RequestMethod.GET)
     @ResponseBody
+    @CrossOrigin(origins = "*")
     public List<Comentario> mostrarComentariosIdea(@PathVariable String id_idea){
         Idea idea = this.ideaRepository.findIdeaById(id_idea);
         return idea.getComentarios();
@@ -55,7 +57,7 @@ public class IdeaService {
 	ideaRepo.setResumen(idea.getResumen());
     }
 
-    @RequestMapping(value = "{id_idea}/comentar", method = RequestMethod.POST)
+    /*@RequestMapping(value = "{id_idea}/comentar", method = RequestMethod.POST)
     @ResponseBody
     public Idea comentar(@PathVariable String id_idea, @RequestBody String id_comentario){
         Idea idea = this.ideaRepository.findIdeaById(id_idea);
@@ -64,5 +66,5 @@ public class IdeaService {
         comentariosDeIdea.add(comentarioRepo);
         idea.setComentarios(comentariosDeIdea);
         return this.ideaRepository.save(idea);
-    }
+    }*/
 }

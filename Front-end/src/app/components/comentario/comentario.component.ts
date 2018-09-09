@@ -13,15 +13,17 @@ export class ComentarioComponent implements OnInit {
   titulo: string;
   comentario: string;
   fecha: string;
-  comentarios: any;
+  comentarios: any = [];
 
   constructor(private comentarioService: ComentarioService, private route: ActivatedRoute) {
-      this.route.params.subscribe( params => this.getComentarios());
-      this.route.params.subscribe( params => this.addComentarioIdea(this.id_idea, params['id_comentario']));
-      // this.validarComentario();
+    this.route.paramMap.subscribe( params => this.id_idea = params.get('id_idea'));
+      // this.route.params.subscribe( params => this.addComentarioIdea(this.id_idea, params['id_comentario']));
+      this.getComentarios(this.id_idea);
   }
-  getComentarios() {
-    this.comentarioService.getComentariosIdea(this.id_idea);
+  getComentarios(id_idea) {
+    this.comentarioService.getComentariosIdea(id_idea).subscribe(response => {
+      this.comentarios = response;
+    });
   }
 
   addComentarioIdea(id_idea, id_comentario) {

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ComentarioService} from '../../../services/comentario.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-crear-comentario',
@@ -9,26 +10,29 @@ import {ComentarioService} from '../../../services/comentario.service';
 })
 export class CrearComentarioComponent implements OnInit {
 
-  formData: FormGroup;
+  texto: string;
+  @Input() id_idea;
+  comentarForm: FormGroup;
 
-  constructor(private comentarioService: ComentarioService, private form: FormBuilder) {
+  get diagnostic() { return JSON.stringify(this.texto); }
+
+  constructor(private comentarioService: ComentarioService, private route: ActivatedRoute) {
+    this.route.paramMap.subscribe( params => this.id_idea = params.get('id_idea'));
     this.formComentario();
   }
 
   ngOnInit() {
   }
 
-  enviar(nombre_usuario, comentario) {
-    this.comentarioService.crearComentario(nombre_usuario , comentario, new Date());
+  enviar(id_idea, id_usuario, comentario) {
+    console.log(comentario);
+    this.comentarioService.crearComentario(id_idea, id_usuario, comentario);
   }
 
   formComentario() {
-    this.formData = this.form.group({
-      comentario: ['', Validators.required],
+    this.comentarForm =  new FormGroup({
+      texto: new FormControl(this.texto)
     });
   }
 
-  crearComentario(nombre, tituloInput, comentario){
-      this.comentarioService.crearComentario(nombre, comentario, new Date());
-  }
 }

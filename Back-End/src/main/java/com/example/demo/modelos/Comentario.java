@@ -1,5 +1,6 @@
 package com.example.demo.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,7 +13,6 @@ public class Comentario {
     private String id;
 
     private String autor;
-
     private String texto;
     private String hora;
 

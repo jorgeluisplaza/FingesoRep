@@ -5,8 +5,8 @@
       <div class="media-body" style="overflow:visible;">
         <div *ngIf="comentarios" class="row">
           <div *ngFor="let comentario of comentarios" class="col-md-12">
-            <p><a [routerLink]="['/usuarios/', comentario.autor]"><strong>{{comentario.autor}}:</strong></a>&nbsp;{{comentario.comentario}}<br>
-              <small class="text-muted">Comentado en: {{comentario.fecha}} </small></p><button class="btn btn-light btn-sm"
+            <p><a [routerLink]="['/usuarios/', comentario.autor]"><strong>{{comentario.autor}}:</strong></a>&nbsp;{{comentario.texto}}<br>
+              <small class="text-muted">Comentado en: {{comentario.hora}} </small></p><button class="btn btn-light btn-sm"
                                                                                         type="button" style="margin: 0; background-color: lightgray;">Responder</button>
           </div>
         </div>

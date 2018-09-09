@@ -84,7 +84,7 @@ public class Idea {
     }
 
     public List<Comentario> getComentarios() {
-        return comentarios;
+        return this.comentarios;
     }
 
     public void setComentarios(List<Comentario> comentarios) {

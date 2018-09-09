@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {IdeaService} from '../../services/idea.service';
 import {IdeaComponent} from './idea.component';
 
@@ -15,18 +15,24 @@ export class IdeaFormComponent implements OnInit {
   @Input() contenido: string;
   formEdit: FormGroup;
 
-  constructor(private ideaService: IdeaService, private ideaComponent: IdeaComponent, private form: FormBuilder){
+  constructor(private ideaService: IdeaService, private ideaComponent: IdeaComponent) {
     this.initForm();
   }
   ngOnInit() {
+
   }
 
   initForm() {
-    this.formEdit = this.form.group({
+    this.formEdit = new FormGroup({
+      titulo: new FormControl(this.titulo),
+      resumen: new FormControl(this.resumen),
+      contenido: new FormControl(this.contenido)
+    });
+    /*this.formEdit = this.form.control.get({
       titulo: ['', Validators.required],
       resumen: ['', Validators.required],
       contenido: ['', Validators.required],
-    });
+    });*/
   }
 
   update(id_idea, titulo, resumen, contenido) {

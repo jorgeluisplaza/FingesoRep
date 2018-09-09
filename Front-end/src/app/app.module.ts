@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: '', component: MenuComponent},
   { path: 'admin', component: AdministradorComponent},
   { path: 'admin/users', component: AdminUsersComponent},
-  { path: 'ideas/:id', component: IdeaComponent},
+  { path: 'ideas/:id_idea', component: IdeaComponent},
   { path: 'usuarios', component: UsuarioComponent},
   { path: 'usuarios/:id', component: UsuarioComponent},
   { path: 'retos/:id', component: RetoComponent},
@@ -50,7 +50,7 @@ const routes: Routes = [
     NavBarComponent,
     AdminUsersComponent,
     FooterComponent,
-    CrearComentarioComponent
+    CrearComentarioComponent,
     IdeaFormComponent,
   ],
   imports: [

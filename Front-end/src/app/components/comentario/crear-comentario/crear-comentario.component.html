@@ -1,3 +1,9 @@
-<label [formGroup]>Escribe un comentario:&nbsp;</label>
-<textarea formGroupName="comentario" class="form-control"></textarea>
-<button (click)="enviar()" class="btn btn-light" type="button" style="margin-left:0; background-color: #639eff; color: white;">Comentar</button>
+<form #comentario="ngForm">
+
+<label>Escribe un comentario:&nbsp;</label>
+<textarea [(ngModel)]="texto" name=texto class="form-control"></textarea>
+<button (click)="enviar(id_idea, '42jasdas22a2ed', texto)" class="btn btn-light" type="button" style="margin-left:0; background-color: #639eff; color: white;">Comentar</button>
+<p>
+  Esta comentando {{texto}}
+</p>
+</form>

@@ -11,10 +11,11 @@ import com.example.demo.repositorios.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Null;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/usuarios")
+// @RequestMapping(value = "/usuarios")
 public class UsuarioServicio {
 
     @Autowired
@@ -24,13 +25,13 @@ public class UsuarioServicio {
     @Autowired
     private ComentarioRepository comentarioRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
     @ResponseBody
     public List<Usuario> getUsuario(){
         return this.usuarioRepository.findAll();
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/usuarios/create", method = RequestMethod.POST)
     @ResponseBody
     public Usuario createUsuario(@RequestBody Usuario usuario){
 
@@ -38,7 +39,7 @@ public class UsuarioServicio {
         return this.usuarioRepository.save(usuario);
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "/usuarios/update", method = RequestMethod.PUT)
     @ResponseBody
     public Usuario updateUsuario(@RequestBody Usuario usuario){
 
@@ -47,14 +48,14 @@ public class UsuarioServicio {
         return this.usuarioRepository.save(user);
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/usuarios/{id}",method = RequestMethod.GET)
     @CrossOrigin(origins = "*")
     public Usuario getUsuarioById(@PathVariable String id){
         return this.usuarioRepository.findUsuarioById(id);
     }
 
 
-    @RequestMapping(value = "/{id}/agregarIdea", method = RequestMethod.POST)
+    @RequestMapping(value = "/usuarios/{id}/agregarIdea", method = RequestMethod.POST)
     @ResponseBody
     public Usuario addIdeaToUser(@PathVariable String id,@RequestBody Idea idea){
 
@@ -70,16 +71,24 @@ public class UsuarioServicio {
 
     }
 
-    @RequestMapping(value = "{id_usuario}/comentar", method = RequestMethod.POST)
+    @RequestMapping(value = "ideas/{id_idea}/{id_usuario}/comentar", method = RequestMethod.POST)
     @ResponseBody
-    public Usuario agregarComentario(@PathVariable String id_usuario, @RequestBody Comentario comentario){
+    @CrossOrigin(origins = "*")
+    public Comentario agregarComentario(@PathVariable String id_idea, @PathVariable String id_usuario, @RequestBody Comentario comentario){
+        Comentario comentarioRepo = this.comentarioRepository.save(comentario);
         Usuario usuario = this.usuarioRepository.findUsuarioById(id_usuario);
-        Comentario comentarioRepo = this.comentarioRepository.findComentarioById(comentario.getId());
-        comentario.setAutor(usuario.getNombre());
-        this.comentarioRepository.save(comentario);
+        Idea idea = this.ideaRepository.findIdeaById(id_idea);
+        String nombreAutor = usuario.getNombre();
+        comentarioRepo.setAutor(nombreAutor);
+        List<Comentario> comentariosIdea = idea.getComentarios();
         List<Comentario> comentariosUsuario = usuario.getComentarios();
-        comentariosUsuario.add(comentario);
-        return this.usuarioRepository.save(usuario);
+        comentariosUsuario.add(comentarioRepo);
+        comentariosIdea.add(comentarioRepo);
+        idea.setComentarios(comentariosIdea);
+        usuario.setComentarios(comentariosUsuario);
+        this.ideaRepository.save(idea);
+        this.usuarioRepository.save(usuario);
+        return this.comentarioRepository.save(comentarioRepo);
     }
 
     /*@RequestMapping(value = "/{id_usuario}/delete", method = RequestMethod.DELETE)

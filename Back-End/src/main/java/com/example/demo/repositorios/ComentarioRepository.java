@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ComentarioRepository extends MongoRepository<Comentario,Long> {
+public interface ComentarioRepository extends MongoRepository<Comentario, Long> {
 
     public Comentario findComentarioById(String id);
 }

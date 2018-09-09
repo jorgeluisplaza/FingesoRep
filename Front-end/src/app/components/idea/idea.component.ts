@@ -16,14 +16,17 @@ export class IdeaComponent implements OnInit {
   fecha_creacion: string;
 
   constructor(private ideaService: IdeaService, private route: ActivatedRoute) {
-    this.route.params.subscribe( params => this.buscarIdea(params['id']));
+    this.route.paramMap.subscribe( params => this.buscarIdea(params.get('id_idea')));
   }
   ngOnInit() {
-    this.id_idea = this.route.params['id'];
+    /*this.route.paramMap.subscribe(params => {
+      this.id_idea = params.get('id_idea');
+    });*/
   }
 
-  buscarIdea(id: string) {
-    this.ideaService.getIdeaById(id).subscribe((idea) => {
+  buscarIdea(id_idea) {
+    this.id_idea = id_idea;
+    this.ideaService.getIdeaById(id_idea).subscribe((idea) => {
       this.titulo = idea.titulo;
       this.resumen = idea.resumen;
       this.contenido = idea.contenido;
