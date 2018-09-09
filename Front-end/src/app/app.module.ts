@@ -29,9 +29,11 @@ import { CrearRetoComponent } from './components/crear-reto/crear-reto.component
 import {CrearRetoService} from './services/crear-reto.service';
 import { ListaideasComponent } from './components/listaideas/listaideas.component';
 import { CrearIdeaComponent } from './components/crear-idea/crear-idea.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'admin', component: AdministradorComponent},
   { path: 'admin/users', component: AdminUsersComponent},
   { path: 'ideas/:id_idea', component: IdeaComponent},
@@ -61,7 +63,8 @@ const routes: Routes = [
     IdeaFormComponent,
     CrearRetoComponent,
     ListaideasComponent,
-    CrearIdeaComponent
+    CrearIdeaComponent,
+    LoginComponent
   ],
   imports: [
     HttpModule,

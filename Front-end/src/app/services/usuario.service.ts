@@ -19,4 +19,7 @@ export class UsuarioService {
     return this.http.get(this.baseUrl + '/' + nombre ).pipe(map(response => response.json()));
   }
 
+  getUsuariobyCorreo(correo: string) {
+    return this.http.get(this.baseUrl + '/correo/' + correo ).pipe(map(response => response.json()));
+  }
 }

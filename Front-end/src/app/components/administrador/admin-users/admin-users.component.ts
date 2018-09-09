@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-admin-users',
@@ -28,6 +29,7 @@ export class AdminUsersComponent implements OnInit {
         cargo: this.cargo,
         rol: this.privilegios
       };
+
       $.ajax({
         type: 'POST',
         contentType: 'application/json',
