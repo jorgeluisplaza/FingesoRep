@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
                     <div class="intro">
-                        <h2 class="text-center margin-top: 15px;">{{tituloInput}}</h2>
+                        <h2 class="text-center margin-top: 15px;">{{titulo}}</h2>
                         <p class="text-center"><span class="by">Creado por&nbsp;<a href="#">Nombre_usuario</a></span><span class="by"></span><a href="#"></a> <span class="date">Jueves 23 de agosto, 2018</span></p>
                     </div>
                     <h5>Problema</h5>
@@ -59,7 +59,6 @@
                           <br>
                         </dl>
                     </div>
-                        <figure></figure>
                     <button class="btn btn-primary" type="button" data-target="#modal1" data-toggle="modal">Publicar una idea</button>
                     <button class="btn btn-primary" type="button" data-target="#modal2" data-toggle="modal">Nueva version de un reto</button>
                     <div class="modal fade" role="dialog" tabindex="-1" id="modal1">
@@ -76,42 +75,63 @@
                 </div>
           </div>
         </div>
-    </div>
-    <div class="footer-clean" style="color:rgb(6,6,6);background-color:#cccccc;">
-        <footer style="color:rgb(0,0,0);">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Servicios</h3>
-                        <ul>
-                            <li><a href="#">Innovación</a></li>
-                            <li><a href="#">Desarrollo de aplicaciones</a></li>
-                            <li><a href="#">Integración</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Sobre Alaya</h3>
-                        <ul>
-                            <li><a href="#">Casos de éxito</a></li>
-                            <li><a href="#">Certificaciones</a></li>
-                            <li>Alianzas</li>
-                            <li><a href="#">Certificaciones</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Contacto</h3>
-                        <ul>
-                            <li><a href="#">Trabaja con nosotros</a></li>
-                            <li><a href="#">Contacto</a></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a>
-                        <p class="copyright">Alaya Digital Solutions© 2018</p>
-                    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div>
+              <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Hoy<span class="badge badge-pill badge-primary">5</span></a></li>
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Este mes<span class="badge badge-pill badge-primary">20</span></a></li>
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Más votados</a></li>
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">Todos<span class="badge badge-pill badge-primary">42</span></a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" role="tabpanel" id="tab-1">
+                  <div class="thread-list-head">
+                    <nav class="thread-pages">
+                      <ul class="pagination">
+                        <li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        <li class="page-item"><a class="page-link">1</a></li>
+                        <li class="page-item"><a class="page-link">2</a></li>
+                        <li class="page-item"><a class="page-link">3</a></li>
+                        <li class="page-item"><a class="page-link">4</a></li>
+                        <li class="page-item"><a class="page-link">5</a></li>
+                        <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div *ngIf="ideas">
+                    <table class="table">
+                      <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Idea</th>
+                        <th scope="col">Fecha publicación</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let idea of ideas" class="thread-list">
+                        <td [routerLink]="['/usuarios/', idea.autor]">{{idea.autor}}</td>
+                        <td [routerLink]="['/ideas/', idea.id]" class="title"><strong>{{idea.titulo}}: </strong><span>{{idea.resumen}}</span></td>
+                        <td class="time">{{idea.fecha_creacion}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-            </div>
-        </footer>
+                <div class="tab-pane" role="tabpanel" id="tab-2"></div>
+                <div class="tab-pane" role="tabpanel" id="tab-3"></div>
+                <div class="tab-pane" role="tabpanel" id="tab-4"></div>
+              </div>
+            </div><i class="fa fa-search"></i><label>Busca una idea:</label>
+            <form>
+              <div class="form-group">
+                <div class="input-group"><span class="input-group-addon"></span><input class="form-control" type="search" name="search" /></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

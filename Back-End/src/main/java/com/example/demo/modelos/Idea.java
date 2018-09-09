@@ -22,9 +22,8 @@ public class Idea {
     @DBRef
     private List<Comentario> comentarios;
 
-    @JsonIgnore
-    @DBRef
-    private Usuario autor;
+    private String autor;
+
 
     @JsonIgnore
     @DBRef
@@ -33,15 +32,13 @@ public class Idea {
     public Idea(){
         this.comentarios = new ArrayList<Comentario>();
         this.versiones = new ArrayList<Idea>();
+        this.fecha_creacion = String.valueOf(java.time.LocalDateTime.now());
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId_usuario(String id_usuario) {
-        this.id = id_usuario;
-    }
 
     public String getContenido() {
         return contenido;
@@ -59,11 +56,11 @@ public class Idea {
         this.contenido = contenido;
     }
 
-    public Usuario getAutor() {
+    public String getAutor() {
         return autor;
     }
 
-    public void setAutor(Usuario autor) {
+    public void setAutor(String autor) {
         this.autor = autor;
     }
 

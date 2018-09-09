@@ -15,4 +15,16 @@ export class RetoService {
   getRetoById(id: string) {
     return this.http.get(this.baseUrl + '/' + id ).pipe(map(res => res.text() ? res.json() : {}));
   }
+  crearIdeaReto(id_reto: string, id_usuario: string, titulo: string, contenido: string, resumen: string) {
+    const ideaObj = {
+      titulo: titulo,
+      resumen: resumen,
+      contenido: contenido
+    };
+    return this.http.post(this.baseUrl + '/usuario/' + id_usuario + '/crear-idea', ideaObj)
+      .subscribe(res => console.log('Response crear idea OK'));
+  }
+  getIdeasReto(id_reto: string) {
+    return this.http.get(this.baseUrl + '/' + id_reto + '/ideas').pipe(map(res => res.text() ? res.json() : {}));
+  }
 }

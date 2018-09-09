@@ -15,7 +15,7 @@ export class ListaRetoComponent implements OnInit {
   }
   ngOnInit() {
   }
-  getRetos(){
+  getRetos() {
     this.listaRetoService.getRetos().subscribe(data => {
       this.retos = data;
     });

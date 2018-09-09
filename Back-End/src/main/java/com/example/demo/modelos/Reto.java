@@ -18,16 +18,29 @@ public class Reto {
     private String fecha_creacion;
     private String problema;
     private String plazo;
-    private String restricciones;
+    private String beneficios;
     private String objetivos;
 
     @JsonIgnore
     @DBRef
     private List<Reto> versiones;
 
+    @JsonIgnore
+    @DBRef
+    private List<Idea> ideas;
+
     public Reto(){
         this.fecha_creacion = String.valueOf(java.time.LocalDateTime.now());
+        this.ideas = new ArrayList<Idea>();
         this.versiones = new ArrayList<Reto>();
+    }
+
+    public List<Idea> getIdeas() {
+        return ideas;
+    }
+
+    public void setIdeas(List<Idea> ideas) {
+        this.ideas = ideas;
     }
 
     public String getId() {
@@ -82,12 +95,12 @@ public class Reto {
         this.plazo = plazo;
     }
 
-    public String getRestricciones() {
-        return restricciones;
+    public String getBeneficios() {
+        return beneficios;
     }
 
-    public void setRestricciones(String restricciones) {
-        this.restricciones = restricciones;
+    public void setBeneficios(String beneficios) {
+        this.beneficios = beneficios;
     }
 
     public String getObjetivos() {

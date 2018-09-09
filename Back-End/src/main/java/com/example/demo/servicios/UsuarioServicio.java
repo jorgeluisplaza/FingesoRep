@@ -55,7 +55,7 @@ public class UsuarioServicio {
     }
 
 
-    @RequestMapping(value = "/usuarios/{id}/agregarIdea", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/usuarios/{id}/agregarIdea", method = RequestMethod.POST)
     @ResponseBody
     public Usuario addIdeaToUser(@PathVariable String id,@RequestBody Idea idea){
 
@@ -69,7 +69,7 @@ public class UsuarioServicio {
         this.ideaRepository.save(ideaFromRepo);
         return this.usuarioRepository.save(user);
 
-    }
+    }*/
 
     @RequestMapping(value = "ideas/{id_idea}/{id_usuario}/comentar", method = RequestMethod.POST)
     @ResponseBody

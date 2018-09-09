@@ -9,6 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class RetoComponent implements OnInit {
 
+  id_reto: string;
   titulo: string;
   problema: string;
   objetivos: string;
@@ -17,16 +18,24 @@ export class RetoComponent implements OnInit {
   restricciones: string;
   fecha_creacion: string;
 
+  ideas: any = [];
+
   constructor(private retoService: RetoService, private route: ActivatedRoute) {
-    this.route.params.subscribe( params => this.buscarReto(params['id']));
+    this.route.paramMap.subscribe( params => this.buscarReto(params.get('id')));
   }
 
   ngOnInit() {
   }
+  buscarIdeasReto(id) {
+    this.retoService.getIdeasReto(id).subscribe( response => {
+      this.ideas = response;
+    });
+  }
 
-  buscarReto(id: string){
+  buscarReto(id: string) {
+    this.id_reto = id;
     this.retoService.getRetoById(id).subscribe((reto) => {
-      this.tituloInput = reto.titulo;
+      this.titulo = reto.titulo;
       this.objetivos = reto.objetivos;
       this.restricciones = reto.restricciones;
       this.problema = reto.problema;
@@ -34,5 +43,6 @@ export class RetoComponent implements OnInit {
       this.contenido = reto.contenido;
       this.fecha_creacion = reto.fecha_creacion;
     });
+    this.buscarIdeasReto(id);
   }
 }

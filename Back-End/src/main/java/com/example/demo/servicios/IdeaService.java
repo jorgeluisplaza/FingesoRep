@@ -24,6 +24,7 @@ public class IdeaService {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public Idea createIdea(@RequestBody Idea idea){
+
         return this.ideaRepository.save(idea);
     }
 
