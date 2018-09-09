@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
+@CrossOrigin(value = "*")
 @RestController
 @RequestMapping(value = "/comentarios")
 public class ComentarioServicio {
@@ -17,7 +18,6 @@ public class ComentarioServicio {
 
     @Autowired
     private ComentarioRepository comentarioRepository;
-
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody

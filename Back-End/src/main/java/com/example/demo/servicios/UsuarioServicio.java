@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.Null;
 import java.util.List;
 
+@CrossOrigin(value = "*")
 @RestController
 // @RequestMapping(value = "/usuarios")
 public class UsuarioServicio {

@@ -26,7 +26,7 @@ export class RetoComponent implements OnInit {
 
   buscarReto(id: string){
     this.retoService.getRetoById(id).subscribe((reto) => {
-      this.tituloInput = reto.titulo;
+      this.titulo = reto.titulo;
       this.objetivos = reto.objetivos;
       this.restricciones = reto.restricciones;
       this.problema = reto.problema;
