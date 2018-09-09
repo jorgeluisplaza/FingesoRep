@@ -26,8 +26,8 @@
                   <td *ngIf="usuario.rol === '2'">Administrador</td>
                   <td align="center">
                     <button class="btn btn-primary" *ngIf="usuario.rol === '0'" (click)="convEvaluador(usuario.id)">Otorgar Evaluador</button>
-                    <button class="btn btn-warning disabled" *ngIf="usuario.rol === '1'" (click)="convEvaluador(usuario.id)">Revocar Evaluador</button>
-                    <button class="btn btn-warning disabled" *ngIf="usuario.rol === '2'" (click)="convEvaluador(usuario.id)">Hello</button>
+                    <button class="btn btn-warning disabled" *ngIf="usuario.rol === '1'" >Revocar Evaluador</button>
+                    <button class="btn btn-warning disabled" *ngIf="usuario.rol === '2'" >Hello</button>
                   </td>
                 </tr>
               </tbody>
@@ -60,7 +60,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">Correo</span>
               </div>
-              <input type="text" class="form-control" placeholder="mail@mail.cl" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="correo">
+              <input type="email" class="form-control" placeholder="mail@mail.cl" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="correo">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
