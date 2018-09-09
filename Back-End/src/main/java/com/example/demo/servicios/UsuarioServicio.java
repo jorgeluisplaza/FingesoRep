@@ -28,24 +28,27 @@ public class UsuarioServicio {
 
     @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
     @ResponseBody
+    @CrossOrigin
     public List<Usuario> getUsuario(){
         return this.usuarioRepository.findAll();
     }
 
     @RequestMapping(value = "/usuarios/create", method = RequestMethod.POST)
     @ResponseBody
+    @CrossOrigin
     public Usuario createUsuario(@RequestBody Usuario usuario){
 
         System.out.println("nombre "+usuario.getNombre());
         return this.usuarioRepository.save(usuario);
     }
 
-    @RequestMapping(value = "/usuarios/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "/usuarios/update", method = RequestMethod.POST)
     @ResponseBody
+    @CrossOrigin
     public Usuario updateUsuario(@RequestBody Usuario usuario){
-
         Usuario user = this.usuarioRepository.findUsuarioById(usuario.getId());
-        user.setNombre(usuario.getNombre());
+        user.setRol("1");
+        System.out.println("nombre "+user.getRol());
         return this.usuarioRepository.save(user);
     }
 
