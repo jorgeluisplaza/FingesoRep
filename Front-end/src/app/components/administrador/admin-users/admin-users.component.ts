@@ -14,30 +14,35 @@ export class AdminUsersComponent implements OnInit {
 
   constructor(private usuarioService: UsuarioService) {
     this.getUsuarios();
+    this.privilegios = 0;
   }
   ngOnInit() {
   }
 
   createUser() {
-    const data = {
-      nombre: this.nombreUsuario,
-      correo: this.correo,
-      cargo: this.cargo,
-      rol: this.privilegios
-    };
-    $.ajax({
-      type: 'POST',
-      contentType: 'application/json',
-      url: 'http://localhost:8080/usuarios/create',
-      data: JSON.stringify(data),
-      dataType: 'json',
-      timeout: 600000,
-      success: function () {
-        location.reload(true);
-      },
-      error: function (e) {
-      }
-    });
+    if (nombreUsuario != null && correo != null && cargo != null && privilegios != null) {
+      const data = {
+        nombre: this.nombreUsuario,
+        correo: this.correo,
+        cargo: this.cargo,
+        rol: this.privilegios
+      };
+      $.ajax({
+        type: 'POST',
+        contentType: 'application/json',
+        url: 'http://localhost:8080/usuarios/create',
+        data: JSON.stringify(data),
+        dataType: 'json',
+        timeout: 600000,
+        success: function () {
+          location.reload(true);
+        },
+        error: function (e) {
+        }
+      });
+    } else {
+      alert('Error, Rellene los campos correspondientemente');
+    }
   }
 
   convEvaluador(id) {
@@ -49,7 +54,6 @@ export class AdminUsersComponent implements OnInit {
       }
     }
     console.log(usuario);
-    
     $.ajax({
       type: 'POST',
       contentType: 'application/json',
