@@ -59,6 +59,13 @@ public class UsuarioServicio {
     }
 
 
+    @RequestMapping(value = "/usuarios/correo/{correo}", method = RequestMethod.GET)
+    @CrossOrigin(origins = "*")
+    public Usuario getUsuarioByCorreo(@PathVariable String correo){
+        System.out.println("correo "+correo);
+        return this.usuarioRepository.findUsuarioByCorreo(correo);
+    }
+
     /*@RequestMapping(value = "/usuarios/{id}/agregarIdea", method = RequestMethod.POST)
     @ResponseBody
     public Usuario addIdeaToUser(@PathVariable String id,@RequestBody Idea idea){
