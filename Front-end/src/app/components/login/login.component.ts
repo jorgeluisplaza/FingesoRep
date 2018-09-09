@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         timeout: 600000,
         success: function (data) {
           sessionStorage.setItem('id', data.id);
+          sessionStorage.setItem('nombre', data.nombre);
         },
         error: function (e) {
           console.log('correo no valido');
@@ -35,7 +36,5 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  cerrarSesion() {
-    sessionStorage.clear();
-  }
+  
 }
