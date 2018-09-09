@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
+
 @Component({
   selector: 'app-admin-users',
   templateUrl: './admin-users.component.html',
@@ -14,13 +15,13 @@ export class AdminUsersComponent implements OnInit {
 
   constructor(private usuarioService: UsuarioService) {
     this.getUsuarios();
-    this.privilegios = 0;
+    this.privilegios = '0';
   }
   ngOnInit() {
   }
 
   createUser() {
-    if (nombreUsuario != null && correo != null && cargo != null && privilegios != null) {
+    if (this.nombreUsuario != null && this.correo != null && this.cargo != null && this.privilegios != null) {
       const data = {
         nombre: this.nombreUsuario,
         correo: this.correo,
@@ -53,7 +54,6 @@ export class AdminUsersComponent implements OnInit {
         usuario.rol = '1';
       }
     }
-    console.log(usuario);
     $.ajax({
       type: 'POST',
       contentType: 'application/json',
@@ -62,7 +62,7 @@ export class AdminUsersComponent implements OnInit {
       dataType: 'json',
       timeout: 600000,
       success: function () {
-        console.log("hola");
+        location.reload(true);
       },
       error: function (e) {
 
@@ -77,4 +77,3 @@ export class AdminUsersComponent implements OnInit {
   }
 
 }
- 

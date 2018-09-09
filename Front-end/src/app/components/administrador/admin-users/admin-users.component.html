@@ -39,51 +39,51 @@
 </div>
 
 <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="addUserModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addUserModal">Crear Usuario</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserModal">Crear Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Nombre</span>
-              </div>
-              <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="nombreUsuario">
-              
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Nombre</span>
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Correo</span>
-              </div>
-              <input type="email" class="form-control" placeholder="mail@mail.cl" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="correo">
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="nombreUsuario">
+            
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Correo</span>
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Cargo</span>
-              </div>
-              <input type="text" class="form-control" placeholder="Inversor/Empleado/Recursos Humanos" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="cargo">
+            <input type="email" class="form-control" placeholder="mail@mail.cl" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="correo">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Cargo</span>
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Privilegios</span>
-              </div>
-              <select class="custom-select" id="selectPrivilegios" [(ngModel)]="privilegios">
-                <option value="0">Ninguno</option>
-                <option value="1">Evaluador</option>
-                <option value="2">Administrador</option>
-              </select>
+            <input type="text" class="form-control" placeholder="Inversor/Empleado/Recursos Humanos" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="cargo">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Privilegios</span>
             </div>
-        </div>
+            <select class="custom-select" id="selectPrivilegios" [(ngModel)]="privilegios">
+              <option value="0">Ninguno</option>
+              <option value="1">Evaluador</option>
+              <option value="2">Administrador</option>
+            </select>
+          </div>
+      </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="createUser()">Save changes</button>
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="createUser()">Save changes</button>
       </div>
     </div>
   </div>
+</div>

@@ -9,26 +9,18 @@ import {Reto} from '../reto';
 export class CrearRetoService {
   private baseUrl = 'http://localhost:8080/retos';
   private headers = new Headers({'ContentType': 'application/json'});
-  private reto: Reto;
 
   constructor(private http: Http) { }
 
-  crearReto(titulo: string, contenido: string, plazo: string) {
+  crearReto(titulo: string, contenido: string, plazo: string, problema: string, objetivos: string) {
     const retoObj = {
       titulo: titulo,
       contenido: contenido,
       plazo: plazo,
+      problema: problema,
+      objetivos: objetivos
     }
-    return this.http.post(this.baseUrl, retoObj).pipe(map(res => res.text() ? res.json() : {})).subscribe(
-      res => console.log('Crear reto OK'));
+    return this.http.post(this.baseUrl, retoObj, { headers: this.headers})
+      .subscribe(res => console.log('Response crear reto OK'));
   }
-
-  setter(reto: Reto) {
-    this.reto = reto;
-  }
-
-  getter() {
-    return this.reto;
-  }
-
 }
