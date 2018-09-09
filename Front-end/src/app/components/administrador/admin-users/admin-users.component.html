@@ -7,7 +7,8 @@
         <div class="panel panel-default panel-table">
           <div class="panel-heading"></div>
           <div class="panel-body">
-            <table class="table table-striped table-bordered table-list">
+            <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#addUser" >Agregar Usuario</button>
+            <table class="table table-striped table-bordered table-list mt-4">
               <thead>
                 <tr>
                   <th class="hidden-xs">Usuario</th>
@@ -16,46 +17,73 @@
                   <th>Privilegios</th>
                 </tr> 
               </thead>
-              <tbody>
+              <tbody *ngFor="let usuario of usuarios">
                 <tr>
-                  <td class="hidden-xs">Jorge Plaza</td>
-                  <td>Empleado</td>
-                  <td>Ninguno</td>
+                  <td class="hidden-xs">{{usuario.nombre}}</td>
+                  <td>{{usuario.cargo}}</td>
+                  <td *ngIf="usuario.rol === '0'">Ninguno</td>
+                  <td *ngIf="usuario.rol === '1'">Evaluador</td>
+                  <td *ngIf="usuario.rol === '2'">Administrador</td>
                   <td align="center">
-                  <button class="btn btn-primary">Otorgar Evaluador</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="hidden-xs">Ricardo Alvarez</td>
-                  <td>Ingeniero en requisitos</td>
-                  <td>Ninguno</td>
-                  <td align="center">
-                  <button class="btn btn-primary">Otorgar Evaluador</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="hidden-xs">Vicente Rivera</td>
-                  <td>Gestor de proyectos</td>
-                  <td>Evaluador</td>
-                  <td align="center">
-                  <button class="btn btn-danger">Revocar Evaluador</button>
+                    <button class="btn btn-primary" *ngIf="usuario.rol === '0'" (click)="convEvaluador(usuario.id)">Otorgar Evaluador</button>
+                    <button class="btn btn-warning disabled" *ngIf="usuario.rol === '1'" (click)="convEvaluador(usuario.id)">Revocar Evaluador</button>
+                    <button class="btn btn-warning disabled" *ngIf="usuario.rol === '2'" (click)="convEvaluador(usuario.id)">Hello</button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="panel-footer">
-            <ul class="pagination hidden-xs pull-right">
-              <li><a href="#">«</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">»</a></li>
-            </ul>
-          </div>
         </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="addUserModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addUserModal">Crear Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Nombre</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="nombreUsuario">
+              
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Correo</span>
+              </div>
+              <input type="text" class="form-control" placeholder="mail@mail.cl" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="correo">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Cargo</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Inversor/Empleado/Recursos Humanos" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="cargo">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Privilegios</span>
+              </div>
+              <select class="custom-select" id="selectPrivilegios" [(ngModel)]="privilegios">
+                <option value="0">Ninguno</option>
+                <option value="1">Evaluador</option>
+                <option value="2">Administrador</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="createUser()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
