@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import {CrearRetoService} from '../../services/crear-reto.service';
-import {NgForm} from '@angular/forms';
-import {Reto} from '../../reto';
+import {FormControl, FormGroup, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-crear-reto',
@@ -10,16 +9,32 @@ import {Reto} from '../../reto';
   styleUrls: ['./crear-reto.component.css']
 })
 export class CrearRetoComponent implements OnInit {
-  public reto: Reto;
+  @Input() id: string;
+  titulo: string;
+  problema: string;
+  objetivos: string;
+  contenido: string;
+  plazo: string;
+  fecha_creacion: string;
+  retoForm: FormGroup;
   constructor(private crearRetoService: CrearRetoService, private route: ActivatedRoute) {
+    this.route.paramMap.subscribe( params => this.id = params.get('id_reto'));
+    this.formReto();
   }
 
   ngOnInit() {
-    this.reto = this.crearRetoService.getter();
   }
-  /*crearReto() {
-      this.crearRetoService.crearReto(this.reto).subscribe((reto) => {
-        console.log('Hola');
-      });
-  }*/
+  enviar(titulo, contenido, plazo, problema, objetivos) {
+    this.crearRetoService.crearReto(titulo, contenido, plazo, problema, objetivos);
+  }
+
+  formReto() {
+    this.retoForm =  new FormGroup({
+      titulo: new FormControl(this.titulo),
+      problema: new FormControl(this.problema),
+      objetivos: new FormControl(this.objetivos),
+      contenido: new FormControl(this.contenido),
+      plazo: new FormControl(this.plazo)
+    });
+  }
 }

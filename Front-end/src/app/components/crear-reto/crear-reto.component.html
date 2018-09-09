@@ -1,18 +1,28 @@
 <div class ="container">
 
-  <form (ngSubmit)="crearReto()">
+  <form #reto="ngForm">
     <div class="form-group">
-      <label>Titulo reto</label>
-      <input type="text" name="id" class ="form-control" [(ngModel)]="reto.titulo">
+      <label>Titulo Reto</label>
+      <input type="text" name="titulo" class ="form-control" [(ngModel)]="titulo">
     </div>
     <div class="form-group">
-      <label>Contenido reto</label>
-      <input type="text" name="contenido" class="form-control" [(ngModel)]="reto.contenido">
+      <label>Contenido Reto</label>
+      <input type="text" name="contenido" class="form-control" [(ngModel)]="contenido">
     </div>
     <div class="form-group">
-      <label>Plazo reto</label>
-      <input type="text" name="contenido" class="form-control" [(ngModel)]="reto.plazo">
+      <label>Problema Reto</label>
+      <input type="text" name="problema" class="form-control" [(ngModel)]="problema">
     </div>
-    <input type="submit" value="save" class="btn btn-success">
+    <div class="form-group">
+      <label>Plazo Reto</label>
+      <input type="text" name="plazo" class="form-control" [(ngModel)]="plazo">
+    </div>
+    <div class="form-group">
+      <label>Objetivos Reto</label>
+      <input type="text" name="objetivos" class="form-control" [(ngModel)]="objetivos">
+    </div>
+    <div routerLink="/listaretos">
+    <button (click)="enviar(titulo, contenido, plazo, problema, objetivos)" class="btn btn-primary" type="button">Publicar</button>
+    </div>
   </form>
 </div>
