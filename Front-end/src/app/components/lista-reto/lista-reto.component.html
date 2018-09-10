@@ -39,16 +39,6 @@
           <h2 class="text-center text-dark margin-top: 15px;">Retos de innovación</h2>
           <p class="lead text-center text-dark"><strong>Aquí se muestran todos los retos propuestos por Alaya</strong><a href="#"></a> </p>
         </div>
-        <!--
-        <div class="modal fade" role="dialog" tabindex="-1" id="modal">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Publica una idea</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
-                  <div class="modal-body"><label>Título de la idea:&nbsp;</label><input type="text" class="form-control"><label>Resumen breve de la idea:&nbsp;</label><textarea class="form-control"></textarea><label>Describe tu idea:&nbsp;</label><textarea class="form-control"></textarea></div>
-                  <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
-            </div>
-          </div>-->
       </div>
       <div *ngFor="let reto of retos" routerLink="/retos/{{reto.id}}" class="col"><figure class="snip1253">
         <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample52.jpg" alt="sample52"/></div>
@@ -59,11 +49,6 @@
             {{reto.contenido}}
           </p>
         </figcaption>
-        <footer>
-          <div class="views"><i class="ion-eye"></i>10</div>
-          <div class="love"><i class="ion-heart"></i>2</div>
-          <div class="comments"><i class="ion-chatboxes"></i>4</div>
-        </footer>
       </figure>
       </div>
       <div class="modal fade" role="dialog" tabindex="-1" id="modal1">

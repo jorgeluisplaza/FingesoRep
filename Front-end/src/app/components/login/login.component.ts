@@ -35,6 +35,4 @@ export class LoginComponent implements OnInit {
       alert('Debe Ingresar un correo');
     }
   }
-
-  
 }
