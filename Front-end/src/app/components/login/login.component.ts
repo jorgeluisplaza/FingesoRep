@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
           console.log(data);
           sessionStorage.setItem('id', data.id);
           sessionStorage.setItem( 'username', data.nombre);
-          window.location.replace('/retos');
+          window.location.replace('/menu');
         },
         error: function (e) {
           console.log('correo no valido');
