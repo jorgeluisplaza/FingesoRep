@@ -45,11 +45,11 @@ public class UsuarioServicio {
 
     @RequestMapping(value = "/usuarios/update", method = RequestMethod.POST)
     @ResponseBody
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     public Usuario updateUsuario(@RequestBody Usuario usuario){
         Usuario user = this.usuarioRepository.findUsuarioById(usuario.getId());
-        user.setRol(1);
-        System.out.println("nombre "+user.getRol());
+        user.setRol("Administrador"); // ??????
+        System.out.println("nombre "+ user.getRol());
         return this.usuarioRepository.save(user);
     }
 

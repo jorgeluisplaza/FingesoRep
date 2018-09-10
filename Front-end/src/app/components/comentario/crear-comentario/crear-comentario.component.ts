@@ -24,9 +24,9 @@ export class CrearComentarioComponent implements OnInit {
   ngOnInit() {
   }
 
-  enviar(id_idea, id_usuario, comentario) {
-    console.log(comentario);
-    this.comentarioService.crearComentario(id_idea, id_usuario, comentario);
+  enviar(id_idea, comentario) {
+    const id_session = sessionStorage.getItem('id');
+    this.comentarioService.crearComentario(id_idea, id_session, comentario);
     location.reload(true);
   }
 

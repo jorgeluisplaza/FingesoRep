@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   verificarCorreo() {
-    if (this.correoIngreso !== '') {
+      if (this.correoIngreso !== '') {
       const correo = this.correoIngreso;
       $.ajax({
         type: 'GET',
@@ -24,7 +24,10 @@ export class LoginComponent implements OnInit {
         dataType: 'json',
         timeout: 600000,
         success: function (data) {
+          console.log(data);
           sessionStorage.setItem('id', data.id);
+          sessionStorage.setItem( 'username', data.nombre);
+          window.location.replace('/retos');
         },
         error: function (e) {
           console.log('correo no valido');
@@ -33,9 +36,5 @@ export class LoginComponent implements OnInit {
     } else {
       alert('Debe Ingresar un correo');
     }
-  }
-
-  cerrarSesion() {
-    sessionStorage.clear();
   }
 }

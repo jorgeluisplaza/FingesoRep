@@ -9,7 +9,6 @@ import {FormControl, FormGroup, NgForm} from '@angular/forms';
   styleUrls: ['./crear-reto.component.css']
 })
 export class CrearRetoComponent implements OnInit {
-  id_usuario: string;
   titulo: string;
   problema: string;
   objetivos: string;
@@ -25,8 +24,8 @@ export class CrearRetoComponent implements OnInit {
   ngOnInit() {
   }
   enviar(titulo, contenido, plazo, problema, objetivos) {
-    this.id_usuario = '5b957372b2ecc438c81d0734';
-    this.crearRetoService.crearReto(this.id_usuario, titulo, contenido, plazo, problema, objetivos);
+    const id_session = sessionStorage.getItem('id');
+    this.crearRetoService.crearReto(id_session, titulo, contenido, plazo, problema, objetivos);
     window.location.replace('/retos');
   }
 

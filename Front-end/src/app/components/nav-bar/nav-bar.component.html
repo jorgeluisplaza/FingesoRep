@@ -3,8 +3,11 @@
     <div class="collapse navbar-collapse float-none" id="navcol-1">
       <ul class="nav navbar-nav mr-auto"></ul>
       <span class="navbar-text actions">
-        <a href="#" class="login">Salir</a>
-        <a class="btn btn-light action-button" role="button" href="#">Bienvenido Nombre_usuario</a>
+        <a href="/logout" class="login">Salir</a>
+        <a *ngIf="logged; else log" class="btn btn-light action-button" role="button" href="#">Bienvenido {{username}}</a>
+        <ng-template #log>
+          <a class="btn btn-light action-button" role="button" href="/login">Ingresar</a>
+        </ng-template>
       </span>
     </div>
   </div>

@@ -17,6 +17,7 @@ public class Idea {
     private String resumen;
     private String contenido;
     private String fecha_creacion;
+
     private float valoracion_promedio;
 
     @JsonIgnore
@@ -54,6 +55,22 @@ public class Idea {
             average += val.getValoracion();
         }
         this.valoracion_promedio = average/this.valoraciones.size();
+    }
+
+    public float getValoracion_promedio() {
+        return valoracion_promedio;
+    }
+
+    public void setValoracion_promedio(float valoracion_promedio) {
+        this.valoracion_promedio = Math.round(valoracion_promedio * 10) / 10;
+    }
+
+    public List<Idea> getVersiones() {
+        return versiones;
+    }
+
+    public void setVersiones(List<Idea> versiones) {
+        this.versiones = versiones;
     }
 
     public void setValoraciones(List<Valoracion> valoraciones) {

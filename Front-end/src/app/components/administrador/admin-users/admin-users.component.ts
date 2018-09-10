@@ -8,7 +8,7 @@ import * as $ from 'jquery';
   styleUrls: ['./admin-users.component.css']
 })
 export class AdminUsersComponent implements OnInit {
-  private usuarios: any;
+  private usuarios: any = [];
   private nombreUsuario: string;
   private correo: string;
   private cargo: string;

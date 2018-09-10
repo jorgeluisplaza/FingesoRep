@@ -28,11 +28,6 @@ export class IdeaFormComponent implements OnInit {
       resumen: new FormControl(this.resumen),
       contenido: new FormControl(this.contenido)
     });
-    /*this.formEdit = this.form.control.get({
-      titulo: ['', Validators.required],
-      resumen: ['', Validators.required],
-      contenido: ['', Validators.required],
-    });*/
   }
 
   update(id_idea, titulo, resumen, contenido) {

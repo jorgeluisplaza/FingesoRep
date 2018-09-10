@@ -17,7 +17,6 @@ export class ComentarioComponent implements OnInit {
 
   constructor(private comentarioService: ComentarioService, private route: ActivatedRoute) {
     this.route.paramMap.subscribe( params => this.id_idea = params.get('id_idea'));
-      // this.route.params.subscribe( params => this.addComentarioIdea(this.id_idea, params['id_comentario']));
       this.getComentarios(this.id_idea);
   }
   getComentarios(id_idea) {
@@ -25,13 +24,6 @@ export class ComentarioComponent implements OnInit {
       this.comentarios = response;
     });
   }
-
-  addComentarioIdea(id_idea, id_comentario) {
-    this.comentarioService.addComentarioIdea(id_idea, id_comentario);
-  }
-
-
   ngOnInit() {
-
   }
 }

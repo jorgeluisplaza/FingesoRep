@@ -20,7 +20,7 @@ public class Usuario {
     private String usuario;
     private String contraseña;
     private String correo;
-    private Integer rol;
+    private String rol;
     private String fecha_ingreso;
 
     @JsonIgnore
@@ -37,7 +37,7 @@ public class Usuario {
         this.fecha_ingreso = String.valueOf(java.time.LocalDateTime.now());
     }
 
-    public Usuario( String usuario, String contraseña, String correo, String nombre, String apellido, String cargo, Integer rol){
+    public Usuario( String usuario, String contraseña, String correo, String nombre, String apellido, String cargo, String rol){
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.correo = correo;
@@ -56,7 +56,7 @@ public class Usuario {
         this.apellido = apellido;
         this.nombre = nombre;
         this.cargo = cargo;
-        this.rol = 0;
+        this.rol = "Ninguno";
         this.ideas = new ArrayList<Idea>();
         this.fecha_ingreso = String.valueOf(java.time.LocalDateTime.now());
     }
@@ -130,11 +130,11 @@ public class Usuario {
         this.cargo = cargo;
     }
 
-    public Integer getRol() {
+    public String getRol() {
         return rol;
     }
 
-    public void setRol(Integer rol) {
+    public void setRol(String rol) {
         this.rol = rol;
     }
 

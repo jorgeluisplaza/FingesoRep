@@ -16,18 +16,15 @@ export class CrearIdeaComponent implements OnInit {
   ideaForm: FormGroup;
 
   constructor(private crearIdeaService: CrearIdeaService) {
-    // this.route.paramMap.subscribe( params => this.id_reto = params.get('id_'));
     this.formIdea();
   }
 
   ngOnInit() {
   }
-  /*agregarIdea() {
-    this.crearIdeaService.crearIdea(this.titulo, this.contenido, this.resumen);
-  }*/
 
-  enviar(id_usuario, titulo, contenido, resumen) {
-    this.crearIdeaService.crearIdea(this.id_reto, id_usuario, titulo, contenido, resumen);
+  enviar(titulo, contenido, resumen) {
+    const id_session = sessionStorage.getItem('id');
+    this.crearIdeaService.crearIdea(this.id_reto, id_session, titulo, contenido, resumen);
   }
 
   formIdea() {
