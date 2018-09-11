@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Idea {
@@ -38,7 +40,8 @@ public class Idea {
         this.comentarios = new ArrayList<Comentario>();
         this.versiones = new ArrayList<Idea>();
         this.valoraciones = new ArrayList<Valoracion>();
-        this.fecha_creacion = String.valueOf(java.time.LocalDateTime.now());
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
+        this.fecha_creacion = formato.format(new Date());
     }
 
     public String getId() {

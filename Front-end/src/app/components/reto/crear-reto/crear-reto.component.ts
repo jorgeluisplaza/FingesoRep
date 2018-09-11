@@ -16,8 +16,13 @@ export class CrearRetoComponent implements OnInit {
   plazo: string;
   fecha_creacion: string;
   retoForm: FormGroup;
+
   constructor(private retoService: RetoService, private route: ActivatedRoute) {
-    // this.route.paramMap.subscribe( params => this.id = params.get('id_reto'));
+    const rol = sessionStorage.getItem('rol');
+    if(rol != "1") {
+      alert("No está autorizado para acceder a este sitio");
+      window.location.replace("/");
+    }
     this.formReto();
   }
 

@@ -123,6 +123,23 @@ public class IdeaService {
         return this.ideaRepository.findIdeaByRetoEquals("Idea Libre");
     }
 
+    @RequestMapping(value = "/usuario/{id_usuario}/crear-idea", method = RequestMethod.POST)
+    @ResponseBody
+    public Idea crearIdeaLibre(@PathVariable String id_usuario, @RequestBody Idea idea) {
+        Usuario usuarioRepo = this.usuarioRepository.findUsuarioById(id_usuario);
+        if(usuarioRepo != null){
+            List<Idea> ideasUsuario = usuarioRepo.getIdeas();
+            Idea ideaLibre = this.ideaRepository.save(idea);
+            ideaLibre.setAutor(usuarioRepo.getNombre());
+            ideasUsuario.add(ideaLibre);
+            usuarioRepo.setIdeas(ideasUsuario);
+            this.usuarioRepository.save(usuarioRepo);
+            return this.ideaRepository.save(ideaLibre);
+        }else{
+            System.out.println("Error, no existe usuario");
+            return null;
+        }
+    }
     /*@RequestMapping(value = "{id_idea}/comentar", method = RequestMethod.POST)
     @ResponseBody
     public Idea comentar(@PathVariable String id_idea, @RequestBody String id_comentario){

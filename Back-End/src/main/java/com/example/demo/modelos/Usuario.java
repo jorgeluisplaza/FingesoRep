@@ -6,7 +6,9 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Usuario {
@@ -34,7 +36,8 @@ public class Usuario {
     public Usuario(){
         this.ideas = new ArrayList<Idea>();
         this.comentarios = new ArrayList<Comentario>();
-        this.fecha_ingreso = String.valueOf(java.time.LocalDateTime.now());
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
+        this.fecha_ingreso = formato.format(new Date());
     }
 
     public Usuario( String usuario, String contraseña, String correo, String nombre, String apellido, String cargo, String rol){
@@ -46,7 +49,8 @@ public class Usuario {
         this.cargo = cargo;
         this.rol = rol;
         this.ideas = new ArrayList<Idea>();
-        this.fecha_ingreso = String.valueOf(java.time.LocalDateTime.now());
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
+        this.fecha_ingreso = formato.format(new Date());
     }
 
     public Usuario( String usuario, String contraseña, String correo, String nombre, String apellido, String cargo){
@@ -58,7 +62,8 @@ public class Usuario {
         this.cargo = cargo;
         this.rol = "Ninguno";
         this.ideas = new ArrayList<Idea>();
-        this.fecha_ingreso = String.valueOf(java.time.LocalDateTime.now());
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
+        this.fecha_ingreso = formato.format(new Date());
     }
 
 

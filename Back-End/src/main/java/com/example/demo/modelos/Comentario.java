@@ -5,6 +5,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Document
 public class Comentario {
 
@@ -15,8 +18,9 @@ public class Comentario {
     private String texto;
     private String hora;
 
-    public Comentario(){
-        this.hora = String.valueOf(java.time.LocalDateTime.now());
+    public Comentario() {
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
+        this.hora = formato.format(new Date());
     }
 
     public String getId() {

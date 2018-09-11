@@ -9,8 +9,12 @@ import { RetoService } from '../../../services/reto.service';
 })
 export class ListaRetoComponent implements OnInit {
   public retos: any;
-
+  public autorizado = false;
   constructor(private retoService: RetoService, private route: ActivatedRoute) {
+    const rol = sessionStorage.getItem('rol');
+    if(rol == "1") {
+      this.autorizado = true;
+    }
     this.getRetos();
   }
   ngOnInit() {

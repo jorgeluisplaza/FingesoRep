@@ -41,7 +41,6 @@ public class UsuarioServicio {
     @CrossOrigin
     public Usuario createUsuario(@RequestBody Usuario usuario){
 
-        System.out.println("nombre "+usuario.getNombre());
         return this.usuarioRepository.save(usuario);
     }
 
@@ -50,8 +49,7 @@ public class UsuarioServicio {
     @CrossOrigin(origins = "*")
     public Usuario updateUsuario(@RequestBody Usuario usuario){
         Usuario user = this.usuarioRepository.findUsuarioById(usuario.getId());
-        user.setRol("Administrador"); // ??????
-        System.out.println("nombre "+ user.getRol());
+        user.setRol("2");
         return this.usuarioRepository.save(user);
     }
 
@@ -71,6 +69,21 @@ public class UsuarioServicio {
         }else{
             Usuario nulo = null;
             return new ResponseEntity<Usuario>(nulo, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(value = "/usuarios/{id}/check-rol", method = RequestMethod.GET)
+    @CrossOrigin(origins = "*")
+    public ResponseEntity checkEvaluador(@PathVariable String id){
+        Usuario usuarioRepo = this.usuarioRepository.findUsuarioById(id);
+        if(usuarioRepo != null){
+            if(usuarioRepo.getRol().equals("1")){
+                return ResponseEntity.ok("Autorizado");
+            }else
+                return new ResponseEntity( HttpStatus.UNAUTHORIZED);
+        }else{
+            System.out.println("Usuario no encontrado");
+            return new ResponseEntity( HttpStatus.UNAUTHORIZED);
         }
     }
 

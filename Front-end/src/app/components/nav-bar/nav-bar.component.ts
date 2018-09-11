@@ -8,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent implements OnInit {
   public username: string;
   public logged = false;
+
   constructor() {
     if (sessionStorage.getItem('id') !== null) {
       this.logged = true;
-      this.username = sessionStorage.getItem('username');
+      this.username = sessionStorage.getItem('nombre');
     }
   }
 

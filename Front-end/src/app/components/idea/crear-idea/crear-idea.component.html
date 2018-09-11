@@ -20,11 +20,13 @@
               <label>Resumen idea</label>
               <input type="text" name="plazo" class="form-control" [(ngModel)]="resumen">
             </div>
-            <button (click)="enviar(titulo, contenido, resumen)" class="btn btn-light" type="button" style="margin-left:0; background-color: #639eff; color: white;">Publicar</button>
+
           </form>
         </div>
-      <div
-        class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+      <div class="modal-footer">
+        <button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
+        <button (click)="enviar(titulo, contenido, resumen)" class="btn btn-light" type="button" style="margin-left:0; background-color: #639eff; color: white;">Publicar</button>
+      </div>
     </div>
   </div>
 </div>

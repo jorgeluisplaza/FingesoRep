@@ -16,7 +16,7 @@
       <div *ngFor="let reto of retos" routerLink="/retos/{{reto.id}}" class="col"><figure class="snip1253">
         <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample52.jpg" alt="sample52"/></div>
         <figcaption>
-          <div class="date"><span class="day">28</span><span class="month">Oct</span></div>
+          <div class="date"><span class="day">{{reto.fecha_creacion.split("-", 1)[0]}}</span><span class="month">Mes {{reto.fecha_creacion.split("-", 3)[1]}}</span></div>
           <h3>{{reto.titulo}}</h3>
           <p>
             {{reto.contenido}}
@@ -42,7 +42,8 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <a href="/crear-reto">Crear un reto (Sólo disponible para evaluadores)</a>
+        <a class="btn btn-info" *ngIf="autorizado" href="/crear-reto">Crear un reto (Sólo disponible para evaluadores)</a>
+        <a class="btn btn-info" href="javascript:history.back()">Volver atrás </a>
       </div>
       <div class="col-md-12"><i class="fa fa-search"></i><label>Busca un reto:</label>
         <form>

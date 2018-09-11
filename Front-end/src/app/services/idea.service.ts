@@ -19,8 +19,8 @@ export class IdeaService {
     const valoracionObj = {
       valoracion: valoracion
     };
-    return this.http.post(this.baseUrl + '/ideas/' + id_idea + '/usuario/' + id_usuario + '/valorar', valoracionObj)
-      .pipe(map( res => res.json()));
+    return this.http.post(this.baseUrl + '/ideas/' + id_idea + '/usuario/' + id_usuario + '/valorar', valoracionObj).subscribe( res => console.log(res));
+      // .pipe(map( res => res.json()));
   }
   getIdeasLibres() {
     return this.http.get(this.baseUrl + '/ideas/ideas-libres').pipe(map(res => res.text() ? res.json() : {}));
@@ -35,6 +35,16 @@ export class IdeaService {
       resumen: resumen,
     };
     return this.http.post(this.baseUrl + '/retos/' + id_reto + '/usuario/' + id_usuario + '/crear-idea', IdeaObj, { headers: this.headers})
+      .subscribe(res => console.log('Response crear idea OK'));
+  }
+
+  crearIdeaLibre(id_usuario: string, titulo: string, contenido: string, resumen: string) {
+    const IdeaObj = {
+      titulo: titulo,
+      contenido: contenido,
+      resumen: resumen,
+    };
+    return this.http.post(this.baseUrl + '/ideas/usuario/' + id_usuario + '/crear-idea', IdeaObj, { headers: this.headers})
       .subscribe(res => console.log('Response crear idea OK'));
   }
 

@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Reto {
@@ -31,9 +33,10 @@ public class Reto {
     private List<Idea> ideas;
 
     public Reto(){
-        this.fecha_creacion = String.valueOf(java.time.LocalDateTime.now());
         this.ideas = new ArrayList<Idea>();
         this.versiones = new ArrayList<Reto>();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
+        this.fecha_creacion = formato.format(new Date());
     }
 
     public List<Idea> getIdeas() {

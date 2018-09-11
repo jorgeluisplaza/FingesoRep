@@ -24,7 +24,7 @@ export class CrearIdeaComponent implements OnInit {
   enviar(titulo, contenido, resumen) {
     const id_session = sessionStorage.getItem('id');
     this.ideaService.crearIdea(this.id_reto, id_session, titulo, contenido, resumen);
-    window.location.reload();
+    window.location.reload(true);
   }
 
   formIdea() {

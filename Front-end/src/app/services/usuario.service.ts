@@ -22,4 +22,8 @@ export class UsuarioService {
   getUsuariobyCorreo(correo: string) {
     return this.http.get(this.baseUrl + '/correo/' + correo ).pipe(map(response => response.json()));
   }
+
+  checkRol(id: string) {
+    return this.http.get( this.baseUrl + '/check-rol');
+  }
 }

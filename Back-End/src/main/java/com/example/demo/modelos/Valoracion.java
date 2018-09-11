@@ -3,7 +3,10 @@ package com.example.demo.modelos;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-    @Document
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+@Document
     public class Valoracion {
 
 
@@ -15,7 +18,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
         private String hora;
 
         public Valoracion() {
-            this.hora = String.valueOf(java.time.LocalDateTime.now());
+            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
+            this.hora = formato.format(new Date());
         }
 
         public String getId() {

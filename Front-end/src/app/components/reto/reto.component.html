@@ -5,7 +5,7 @@
                 <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
                     <div class="intro">
                         <h2 class="text-center margin-top: 15px;">{{titulo}}</h2>
-                        <p class="text-center"><span class="by">Creado por&nbsp;<a href="#">{{autor}}</a></span><span class="by"></span><a href="#"></a> <span class="date">Jueves 23 de agosto, 2018</span></p>
+                        <p class="text-center"><span class="by">Creado por&nbsp;<a href="#">{{autor}}</a></span><span class="by"></span><a href="#"></a> <span class="date">{{fecha_creacion}}</span></p>
                     </div>
                     <h5>Problema</h5>
                     <div class="text">
@@ -24,8 +24,8 @@
                           <br>
                         </dl>
                     </div>
+                    <a href="/retos" class="btn btn-info">Volver a retos</a>
                     <button class="btn btn-primary" type="button" data-target="#modal1" data-toggle="modal">Publicar una idea</button>
-                    <button class="btn btn-primary" type="button" data-target="#modal2" data-toggle="modal">Nueva version de un reto</button>
                     <app-crear-idea [id_reto]="id_reto"></app-crear-idea>
                 </div>
           </div>

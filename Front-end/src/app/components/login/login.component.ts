@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
         success: function (data) {
           sessionStorage.setItem('id', data.id);
           sessionStorage.setItem('nombre', data.nombre);
+          sessionStorage.setItem('rol', data.rol);
+          window.location.replace('/');
         },
         error: function (e) {
           alert('Este correo no es válido o no se encuentra registrado');

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeaService } from '../../services/idea.service';
 import {ActivatedRoute} from '@angular/router';
+import {Error} from 'tslint/lib/error';
 
 
 @Component({
@@ -35,7 +36,14 @@ export class IdeaComponent implements OnInit {
 
   valorar(valoracion) {
     const id_session = sessionStorage.getItem('id');
-    this.ideaService.valorarIdea(this.id_idea, id_session, valoracion).subscribe( res => console.log(res));
+    this.ideaService.valorarIdea(this.id_idea, id_session, valoracion); // .subscribe( response => console.log(response)); //, err => function() {
+      /*  if (err instanceof Error) {
+          alert('Ya ha comentado esta idea!');
+        } else {
+          location.reload(true);
+        }
+      });*/
+     window.location.reload();
   }
 
   calcularRating() {
