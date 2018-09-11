@@ -49,7 +49,7 @@ public class Idea {
         return valoraciones;
     }
 
-    public void recalcular(){
+    public void recalcularValoraciones(){
         float average = 0;
         for(Valoracion val : this.valoraciones){
             average += val.getValoracion();

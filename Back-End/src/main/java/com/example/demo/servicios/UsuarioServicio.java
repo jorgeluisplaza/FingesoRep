@@ -10,6 +10,8 @@ import com.example.demo.repositorios.UsuarioRepository;
 
 import com.example.demo.repositorios.ValoracionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Null;
@@ -62,9 +64,14 @@ public class UsuarioServicio {
 
     @RequestMapping(value = "/usuarios/correo/{correo}", method = RequestMethod.GET)
     @CrossOrigin(origins = "*")
-    public Usuario getUsuarioByCorreo(@PathVariable String correo){
-        System.out.println("correo "+correo);
-        return this.usuarioRepository.findUsuarioByCorreo(correo);
+    public ResponseEntity<Usuario> getUsuarioByCorreo(@PathVariable String correo){
+        Usuario usuarioRepo = this.usuarioRepository.findUsuarioByCorreo(correo);
+        if(usuarioRepo != null){
+            return ResponseEntity.ok(usuarioRepo);
+        }else{
+            Usuario nulo = null;
+            return new ResponseEntity<Usuario>(nulo, HttpStatus.NOT_FOUND);
+        }
     }
 
     /*@RequestMapping(value = "/usuarios/{id}/agregarIdea", method = RequestMethod.POST)
@@ -86,7 +93,7 @@ public class UsuarioServicio {
     @RequestMapping(value = "ideas/{id_idea}/{id_usuario}/comentar", method = RequestMethod.POST)
     @ResponseBody
     @CrossOrigin(origins = "*")
-    public Comentario agregarComentario(@PathVariable String id_idea, @PathVariable String id_usuario, @RequestBody Comentario comentario){
+    public Comentario comentar(@PathVariable String id_idea, @PathVariable String id_usuario, @RequestBody Comentario comentario){
         Usuario usuario = this.usuarioRepository.findUsuarioById(id_usuario);
         Idea idea = this.ideaRepository.findIdeaById(id_idea);
         Comentario comentarioRepo = this.comentarioRepository.save(comentario);

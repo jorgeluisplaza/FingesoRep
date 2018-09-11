@@ -7,14 +7,16 @@ import { UsuarioService } from '../../services/usuario.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private correoIngreso: string;
+  correoIngreso: string;
+  private correoInvalido = false;
+
   constructor(private usuarioService: UsuarioService) {
     this.correoIngreso = '';
    }
   ngOnInit() {
   }
   verificarCorreo() {
-      if (this.correoIngreso !== '') {
+    if (this.correoIngreso !== '') {
       const correo = this.correoIngreso;
       $.ajax({
         type: 'GET',
@@ -24,13 +26,11 @@ export class LoginComponent implements OnInit {
         dataType: 'json',
         timeout: 600000,
         success: function (data) {
-          console.log(data);
           sessionStorage.setItem('id', data.id);
-          sessionStorage.setItem( 'username', data.nombre);
-          window.location.replace('/menu');
+          sessionStorage.setItem('nombre', data.nombre);
         },
         error: function (e) {
-          console.log('correo no valido');
+          alert('Este correo no es válido o no se encuentra registrado');
         }
       });
     } else {

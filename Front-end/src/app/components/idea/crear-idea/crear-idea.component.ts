@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CrearIdeaService} from '../../services/crear-idea.service';
-import {ActivatedRoute} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
+import {IdeaService} from '../../../services/idea.service';
 
 @Component({
   selector: 'app-crear-idea',
@@ -15,7 +14,7 @@ export class CrearIdeaComponent implements OnInit {
   resumen: string;
   ideaForm: FormGroup;
 
-  constructor(private crearIdeaService: CrearIdeaService) {
+  constructor(private ideaService: IdeaService) {
     this.formIdea();
   }
 
@@ -24,7 +23,8 @@ export class CrearIdeaComponent implements OnInit {
 
   enviar(titulo, contenido, resumen) {
     const id_session = sessionStorage.getItem('id');
-    this.crearIdeaService.crearIdea(this.id_reto, id_session, titulo, contenido, resumen);
+    this.ideaService.crearIdea(this.id_reto, id_session, titulo, contenido, resumen);
+    window.location.reload();
   }
 
   formIdea() {

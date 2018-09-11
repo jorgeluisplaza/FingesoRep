@@ -1,0 +1,56 @@
+<div class="container">
+<div class="row">
+  <h1 class="header">Ideas libres</h1>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <div class="tab-content">
+          <div class="tab-pane active" role="tabpanel" id="tab-1">
+            <div class="thread-list-head">
+              <nav class="thread-pages">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  <li class="page-item"><a class="page-link">1</a></li>
+                  <li class="page-item"><a class="page-link">2</a></li>
+                  <li class="page-item"><a class="page-link">3</a></li>
+                  <li class="page-item"><a class="page-link">4</a></li>
+                  <li class="page-item"><a class="page-link">5</a></li>
+                  <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+              </nav>
+            </div>
+            <div *ngIf="ideas">
+              <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Autor</th>
+                  <th scope="col">Idea</th>
+                  <th scope="col">Fecha publicación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let idea of ideas" class="thread-list">
+                  <td [routerLink]="['/usuarios/', idea.autor]">{{idea.autor}}</td>
+                  <td [routerLink]="['/ideas/', idea.id]" class="title"><strong>{{idea.titulo}}: </strong><span>{{idea.resumen}}</span></td>
+                  <td class="time">{{idea.fecha_creacion}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane" role="tabpanel" id="tab-2"></div>
+          <div class="tab-pane" role="tabpanel" id="tab-3"></div>
+          <div class="tab-pane" role="tabpanel" id="tab-4"></div>
+        </div>
+      </div><i class="fa fa-search"></i><label>Busca una idea:</label>
+      <form>
+        <div class="form-group">
+          <div class="input-group"><span class="input-group-addon"></span><input class="form-control" type="search" name="search" /></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

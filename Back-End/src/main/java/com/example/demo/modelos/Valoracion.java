@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
         private String id;
 
         private String autor;
-        private float valoracion;
+        private int valoracion;
         private String hora;
 
         public Valoracion() {
@@ -42,11 +42,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
             this.hora = hora;
         }
 
-        public float getValoracion() {
+        public int getValoracion() {
             return valoracion;
         }
 
-        public void setValoracion(float valoracion) {
+        public void setValoracion(int valoracion) {
             this.valoracion = valoracion;
         }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ListaRetoServiceService} from '../../services/lista-reto-service.service';
 import { ActivatedRoute} from '@angular/router';
+import { RetoService } from '../../../services/reto.service';
 
 @Component({
   selector: 'app-lista-reto',
@@ -10,13 +10,13 @@ import { ActivatedRoute} from '@angular/router';
 export class ListaRetoComponent implements OnInit {
   public retos: any;
 
-  constructor(private listaRetoService: ListaRetoServiceService, private route: ActivatedRoute) {
+  constructor(private retoService: RetoService, private route: ActivatedRoute) {
     this.getRetos();
   }
   ngOnInit() {
   }
   getRetos() {
-    this.listaRetoService.getRetos().subscribe(data => {
+    this.retoService.getRetos().subscribe(data => {
       this.retos = data;
     });
   }

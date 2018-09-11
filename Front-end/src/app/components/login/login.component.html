@@ -1,3 +1,10 @@
+<div ng-app="login" ng-controller="controllerValidador as $validador" xmlns="">
+<div id="correoInvalido" class="alert alert-warning alert-dismissible fade" role="alert">
+  El correo proporcionado no se encuentra registrado.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <div class="container mt-5 mb-5">
   <h1 class="form-heading">Panel de Ingreso al sistema</h1>
   <div class="login-form">
@@ -13,3 +20,28 @@
     </div>
   </div>
 </div>
+</div>
+<script>
+  /*var app = angular.module("login", []);
+  app.controller("controllerValidador", function($scope, $http){
+    $http({
+      url: "http://localhost:8080/usuarios/correo/" + $scope.correo,
+      method: "GET",
+      data: JSON.stringify($scope.correo),
+      timeout: 60000,
+    }).then(function(response){
+        if(response.status == 200){
+          console.log("
+          $scope.correoInvalido = false;
+          sessionStorage.setItem('id', data.id);
+          sessionStorage.setItem( 'username', data.nombre);
+        }
+    }, function(error) {
+      console.log("Error!");
+      console.log(error);
+      $scope.correoInvalido = true;
+      $('#correoInvalido').show();
+    })
+  });
+  }*/
+</script>

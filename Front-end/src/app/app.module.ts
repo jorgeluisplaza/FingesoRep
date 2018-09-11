@@ -8,7 +8,6 @@ import { IdeaComponent } from './components/idea/idea.component';
 
 import { UsuarioService} from './services/usuario.service';
 import { IdeaService } from './services/idea.service';
-import {CrearIdeaService} from './services/crear-idea.service';
 
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes} from '@angular/router';
@@ -17,18 +16,17 @@ import { ComentarioComponent } from './components/comentario/comentario.componen
 import {RetoService} from './services/reto.service';
 import {ComentarioService} from './services/comentario.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { ListaRetoComponent } from './components/lista-reto/lista-reto.component';
+import { ListaRetoComponent } from './components/reto/lista-reto/lista-reto.component';
 import { AdministradorComponent } from './components/administrador/administrador.component';
 import { IdeaFormComponent} from './components/idea/ideaForm.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminUsersComponent } from './components/administrador/admin-users/admin-users.component';
 import { CrearComentarioComponent } from './components/comentario/crear-comentario/crear-comentario.component';
-import {ListaRetoServiceService} from './services/lista-reto-service.service';
-import { CrearRetoComponent } from './components/crear-reto/crear-reto.component';
-import {CrearRetoService} from './services/crear-reto.service';
-import { CrearIdeaComponent } from './components/crear-idea/crear-idea.component';
+import { CrearRetoComponent } from './components/reto/crear-reto/crear-reto.component';
+import { CrearIdeaComponent } from './components/idea/crear-idea/crear-idea.component';
 import { LoginComponent } from './components/login/login.component';
+import { IdeasLibresComponent } from './components/idea/ideas-libres/ideas-libres.component';
 
 const routes: Routes = [
   { path: '', component: MenuComponent},
@@ -36,6 +34,7 @@ const routes: Routes = [
   { path: 'logout', component: LoginComponent},
   { path: 'admin', component: AdministradorComponent},
   { path: 'admin/users', component: AdminUsersComponent},
+  { path: 'ideas/ideas-libres', component: IdeasLibresComponent},
   { path: 'ideas/:id_idea', component: IdeaComponent},
   { path: 'usuarios', component: UsuarioComponent},
   { path: 'usuarios/:id', component: UsuarioComponent},
@@ -63,7 +62,8 @@ const routes: Routes = [
     IdeaFormComponent,
     CrearRetoComponent,
     CrearIdeaComponent,
-    LoginComponent
+    LoginComponent,
+    IdeasLibresComponent
   ],
   imports: [
     HttpModule,
@@ -75,10 +75,7 @@ const routes: Routes = [
     UsuarioService,
     IdeaService,
     RetoService,
-    ListaRetoServiceService,
     ComentarioService,
-    CrearRetoService,
-    CrearIdeaService
   ],
   bootstrap: [AppComponent]
 })

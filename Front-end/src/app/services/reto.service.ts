@@ -15,6 +15,7 @@ export class RetoService {
   getRetoById(id: string) {
     return this.http.get(this.baseUrl + '/' + id ).pipe(map(res => res.text() ? res.json() : {}));
   }
+
   crearIdeaReto(id_reto: string, id_usuario: string, titulo: string, contenido: string, resumen: string) {
     const ideaObj = {
       titulo: titulo,
@@ -26,5 +27,21 @@ export class RetoService {
   }
   getIdeasReto(id_reto: string) {
     return this.http.get(this.baseUrl + '/' + id_reto + '/ideas').pipe(map(res => res.text() ? res.json() : {}));
+  }
+
+  getRetos(){
+    return this.http.get(this.baseUrl).pipe(map(response => response.json()));
+  }
+
+  crearReto(id_usuario: string, titulo: string, contenido: string, plazo: string, problema: string, objetivos: string) {
+    const retoObj = {
+      titulo: titulo,
+      contenido: contenido,
+      plazo: plazo,
+      problema: problema,
+      objetivos: objetivos
+    }
+    return this.http.post(this.baseUrl + '/usuario/' + id_usuario + '/crear', retoObj, { headers: this.headers})
+      .subscribe(res => console.log('Response crear reto OK'));
   }
 }

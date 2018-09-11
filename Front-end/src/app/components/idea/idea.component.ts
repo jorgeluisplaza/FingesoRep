@@ -17,8 +17,9 @@ export class IdeaComponent implements OnInit {
   contenido: string;
   fecha_creacion: string;
   valProm: string;
-  valoraciones: any = [];
-  ratings: any = [];
+  valoraciones: Array<any> = [];
+  ratings: Array<number> = [0, 0, 0, 0, 0];
+  total = 0;
 
   constructor(private ideaService: IdeaService, private route: ActivatedRoute) {
     this.route.paramMap.subscribe( params => this.buscarIdea(params.get('id_idea')));
@@ -27,31 +28,23 @@ export class IdeaComponent implements OnInit {
 
   }
 
+  eliminar() {
+    const id_usuario = sessionStorage.getItem('id');
+    this.ideaService.eliminarIdea(this.id_idea, id_usuario);
+  }
+
   valorar(valoracion) {
     const id_session = sessionStorage.getItem('id');
-    this.ideaService.valorarIdea(this.id_idea, id_session, valoracion);
+    this.ideaService.valorarIdea(this.id_idea, id_session, valoracion).subscribe( res => console.log(res));
   }
 
   calcularRating() {
     console.log(this.valoraciones.length);
-    const valObj = {
-      val : {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0
-      },
-      total: 0
-    };
     for (let i = 0; i < this.valoraciones.length; i++) {
-      const val = this.valoraciones[i].valoracion;
-      console.log(val);
-      valObj['val'][val] = valObj['val'][val] + 1;
-      valObj['total'] = valObj['total'] + 1;
+      const val = this.valoraciones[i].valoracion - 1;
+      this.ratings[val]++;
+      this.total++;
     }
-    console.log(valObj);
-    this.ratings = valObj;
   }
 
   buscarIdea(id_idea) {
