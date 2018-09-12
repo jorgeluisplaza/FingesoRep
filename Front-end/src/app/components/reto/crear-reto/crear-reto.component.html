@@ -17,11 +17,15 @@
       <input type="text" name="plazo" class="form-control" [(ngModel)]="plazo">
     </div>
     <div class="form-group">
+      <label>Beneficios Reto</label>
+      <input type="text" name="beneficios" class="form-control" [(ngModel)]="beneficios">
+    </div>
+    <div class="form-group">
       <label>Objetivos Reto</label>
       <input type="text" name="objetivos" class="form-control" [(ngModel)]="objetivos">
     </div>
     <div>
-    <button (click)="enviar(titulo, contenido, plazo, problema, objetivos)" class="btn btn-primary" type="button">Publicar</button>
+    <button (click)="enviar(titulo, contenido, plazo, problema, beneficios, objetivos)" class="btn btn-primary" type="button">Publicar</button>
     </div>
   </form>
 </div>

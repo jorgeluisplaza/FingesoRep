@@ -19,16 +19,10 @@ import java.util.List;
 
 @CrossOrigin(value = "*")
 @RestController
-// @RequestMapping(value = "/usuarios")
 public class UsuarioServicio {
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-    @Autowired
-    private IdeaRepository ideaRepository;
-    @Autowired
-    private ComentarioRepository comentarioRepository;
-
+    @Autowired private UsuarioRepository usuarioRepository;
+    @Autowired private IdeaRepository ideaRepository;
+    @Autowired private ComentarioRepository comentarioRepository;
     @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
     @ResponseBody
     @CrossOrigin
@@ -59,7 +53,6 @@ public class UsuarioServicio {
         return this.usuarioRepository.findUsuarioById(id);
     }
 
-
     @RequestMapping(value = "/usuarios/correo/{correo}", method = RequestMethod.GET)
     @CrossOrigin(origins = "*")
     public ResponseEntity<Usuario> getUsuarioByCorreo(@PathVariable String correo){
@@ -86,22 +79,6 @@ public class UsuarioServicio {
             return new ResponseEntity( HttpStatus.UNAUTHORIZED);
         }
     }
-
-    /*@RequestMapping(value = "/usuarios/{id}/agregarIdea", method = RequestMethod.POST)
-    @ResponseBody
-    public Usuario addIdeaToUser(@PathVariable String id,@RequestBody Idea idea){
-
-
-        Usuario user = this.usuarioRepository.findUsuarioById(id);
-        List<Idea> ideas = user.getIdeas();
-        Idea ideaFromRepo = this.ideaRepository.findIdeaById(idea.getId());
-        ideas.add(ideaFromRepo);
-        ideaFromRepo.setAutor(user);
-        user.setIdeas(ideas);
-        this.ideaRepository.save(ideaFromRepo);
-        return this.usuarioRepository.save(user);
-
-    }*/
 
     @RequestMapping(value = "ideas/{id_idea}/{id_usuario}/comentar", method = RequestMethod.POST)
     @ResponseBody
@@ -132,12 +109,10 @@ public class UsuarioServicio {
         return this.comentarioRepository.save(comentarioRepo);
     }
 
-    /*@RequestMapping(value = "/{id_usuario}/delete", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id_usuario}/delete", method = RequestMethod.DELETE)
     @ResponseBody
-    public String eliminarUsuario(@PathVariable String id_usuario){
-        Usuario user = this.usuarioRepository.deleteById(id_usuario);
-        return user.getIdeas();
-    }*/
-
+    public void eliminarUsuario(@PathVariable String id_usuario){
+        Usuario user = this.usuarioRepository.deleteUsuarioById(id_usuario);
+    }
 }
 

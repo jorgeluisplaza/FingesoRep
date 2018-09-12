@@ -1,10 +1,7 @@
 package com.example.demo.servicios;
 
 
-import com.example.demo.modelos.Comentario;
-import com.example.demo.modelos.Idea;
-import com.example.demo.modelos.Usuario;
-import com.example.demo.modelos.Valoracion;
+import com.example.demo.modelos.*;
 import com.example.demo.repositorios.IdeaRepository;
 import com.example.demo.repositorios.UsuarioRepository;
 import com.example.demo.repositorios.ValoracionRepository;
@@ -20,16 +17,9 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/ideas")
 public class IdeaService {
-
-    @Autowired
-    private IdeaRepository ideaRepository;
-
-    @Autowired
-    private ValoracionRepository valoracionRepository;
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-
+    @Autowired private IdeaRepository ideaRepository;
+    @Autowired private ValoracionRepository valoracionRepository;
+    @Autowired private UsuarioRepository usuarioRepository;
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public Idea createIdea(@RequestBody Idea idea){
@@ -57,7 +47,7 @@ public class IdeaService {
     }
 
     @RequestMapping(value = "{id_idea}/editar", method = RequestMethod.PATCH)
-    @ResponseBody
+    @ResponseBody // En construcción
     public void editarIdea(@RequestBody Idea idea){
         String id = idea.getId();
         String titulo = idea.getTitulo();
@@ -74,7 +64,7 @@ public class IdeaService {
     }
 
     @RequestMapping(value = "{id_idea}/{id_usuario}/eliminar", method = RequestMethod.DELETE)
-    @ResponseBody
+    @ResponseBody // En construcción
     public void eliminarIdea(@PathVariable String id_idea, @PathVariable String id_usuario){
         Idea ideaRepo = this.ideaRepository.findIdeaById(id_idea);
         Usuario usuario = this.usuarioRepository.findUsuarioById(id_usuario);
@@ -140,14 +130,4 @@ public class IdeaService {
             return null;
         }
     }
-    /*@RequestMapping(value = "{id_idea}/comentar", method = RequestMethod.POST)
-    @ResponseBody
-    public Idea comentar(@PathVariable String id_idea, @RequestBody String id_comentario){
-        Idea idea = this.ideaRepository.findIdeaById(id_idea);
-        Comentario comentarioRepo = this.comentarioRepository.findComentarioById(id_comentario);
-        List<Comentario> comentariosDeIdea = idea.getComentarios();
-        comentariosDeIdea.add(comentarioRepo);
-        idea.setComentarios(comentariosDeIdea);
-        return this.ideaRepository.save(idea);
-    }*/
 }

@@ -39,3 +39,11 @@
 .review-block-description{
   font-size:13px;
 }
+
+#navActions {
+  right: 0 !important;
+}
+
+#navActions *{
+  float: right !important;
+}

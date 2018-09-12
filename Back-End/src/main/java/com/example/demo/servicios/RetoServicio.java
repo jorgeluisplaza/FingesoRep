@@ -16,16 +16,9 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/retos")
 public class RetoServicio {
-
-    @Autowired
-    private RetoRepository retoRepository;
-
-    @Autowired
-    private IdeaRepository ideaRepository;
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-
+    @Autowired private RetoRepository retoRepository;
+    @Autowired private IdeaRepository ideaRepository;
+    @Autowired private UsuarioRepository usuarioRepository;
     @RequestMapping(value = "usuario/{id_usuario}/crear", method = RequestMethod.POST)
     @ResponseBody
     public Reto crearReto(@PathVariable String id_usuario, @RequestBody Reto reto) {
@@ -44,12 +37,6 @@ public class RetoServicio {
     public Reto mostrarReto(@PathVariable String id){
         return this.retoRepository.findRetoById(id);
     }
-
-    /*@RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public Reto mostrarRetoPorTitulo(@RequestParam("titulo") String titulo){
-        return this.retoRepository.findRetoByTitulo(titulo);
-    }*/
 
     @RequestMapping(value = "{id_reto}/usuario/{id_usuario}/crear-idea", method = RequestMethod.POST)
     @ResponseBody
@@ -81,4 +68,14 @@ public class RetoServicio {
         return reto.getIdeas();
     }
 
+    @RequestMapping(value = "ideas/buscar", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Idea> buscarIdeaPorTitulo(@RequestParam("titulo") String titulo, @RequestParam("id") String id){
+        Reto retoRepo = this.retoRepository.findRetoById(id);
+        if(retoRepo != null){
+            System.out.println(titulo);
+            return this.ideaRepository.findIdeaByTituloContaining(titulo);
+        }else
+            return null;
+    }
 }

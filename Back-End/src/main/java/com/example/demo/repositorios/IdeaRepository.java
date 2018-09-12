@@ -11,4 +11,5 @@ public interface IdeaRepository extends MongoRepository<Idea, Long> {
 
     public Idea findIdeaById(String id);
     public List<Idea> findIdeaByRetoEquals(String reto);
+    public List<Idea> findIdeaByTituloContaining(String busqueda);
 }

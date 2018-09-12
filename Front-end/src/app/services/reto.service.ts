@@ -33,12 +33,13 @@ export class RetoService {
     return this.http.get(this.baseUrl).pipe(map(response => response.json()));
   }
 
-  crearReto(id_usuario: string, titulo: string, contenido: string, plazo: string, problema: string, objetivos: string) {
+  crearReto(id_usuario: string, titulo: string, contenido: string, plazo: string, problema: string, beneficios: string,  objetivos: string) {
     const retoObj = {
       titulo: titulo,
       contenido: contenido,
       plazo: plazo,
       problema: problema,
+      beneficios: beneficios,
       objetivos: objetivos
     }
     return this.http.post(this.baseUrl + '/usuario/' + id_usuario + '/crear', retoObj, { headers: this.headers})
